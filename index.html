@@ -285,6 +285,23 @@ h2.disp{font-size:26px;line-height:1.1}
 .rpill{font-family:"Russo One","Space Grotesk",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
 .circuit{position:fixed;inset:0;pointer-events:none;opacity:.22;z-index:0}
 #app{position:relative;z-index:1}
+
+/* ---------- v5: SOC triage / connect / respond ---------- */
+.soctabs div{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 2px;line-height:1.15}
+.soctabs b{font-size:9px;opacity:.75}
+.soctabs small{font-size:8.5px;letter-spacing:.12em;padding:1px 6px;border-radius:3px;border:1px solid currentColor;opacity:.85;margin-top:2px}
+.alertq{border-radius:18px;padding:18px 16px;background:linear-gradient(180deg,#22142a,#160f1f);border:1px solid #5e2a52;box-shadow:0 0 0 1px rgba(255,111,216,.06),0 14px 30px rgba(0,0,0,.35);min-height:112px}
+.alertq.pop{animation:in .28s ease}
+.aqt{font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:600;line-height:1.45;color:#f2eefa}
+.tribtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.realb{background:linear-gradient(135deg,#ff6b8a,#ff6fd8);color:#fff}
+.actpins{gap:8px}
+.actchip{padding:11px 14px;border-radius:999px;background:linear-gradient(135deg,#e4d9ff,#a98bff);color:#1a0f33;font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:14px;box-shadow:0 8px 20px rgba(169,139,255,.3)}
+.actchip.used{visibility:hidden}
+.target{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:var(--surf2);border:2px dashed #4c3b72;transition:border-color .2s,background .2s}
+.target .tlab{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.45;color:#e9e3f3}
+.target .tfix{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:14px;color:#9ff0cf}
+.target.fixed{border-style:solid;border-color:#9ff0cf;background:rgba(159,240,207,.08)}
 </style>
 </head>
 <body>
@@ -340,7 +357,7 @@ const badgeSVG=(k)=>{const g={soc:['#6d4aff','#b39dff'],phi:['#c04cff','#ff6fd8'
 /* ---------------- state ---------------- */
 const ROLES={
  soc:{name:"SOC Analyst",attack:"Ransomware",max:400,habit:"Update your devices.",habitText:"Turn on automatic updates and keep a backup."},
- phi:{name:"Phishing Investigator",attack:"Phishing & fake SMS",max:820,habit:"Check the sender and the link before you click.",habitText:"Not sure? Open the official app yourself."},
+ phi:{name:"Phishing Investigator",attack:"Phishing & fake SMS",max:520,habit:"Check the sender and the link before you click.",habitText:"Not sure? Open the official app yourself."},
  soe:{name:"Social Engineering Defender",attack:"Fake support calls",max:320,habit:"Never share an OTP code.",habitText:"Hang up and call the official number."}
 };
 const MAXTOTAL=ROLES.soc.max+ROLES.phi.max+ROLES.soe.max;
@@ -422,7 +439,7 @@ function title(){
  wireSound();$("#go").onclick=()=>{sfx.good();hub()};const r=$("#reset");if(r)r.onclick=()=>{S.scores={};save();title()};
 }
 const HUBINFO={
- soc:{n:"01",tag:"Ransomware",desc:"Unplug infected PCs fast.",meta:"",glow:"rgba(109,74,255,.55)"},
+ soc:{n:"01",tag:"Ransomware",desc:"Find the real alerts. Stop the attack.",meta:"",glow:"rgba(109,74,255,.55)"},
  phi:{n:"02",tag:"Phishing",desc:"Spot the fake messages.",meta:"",glow:"rgba(255,111,216,.45)"},
  soe:{n:"03",tag:"Fake call",desc:"Beat a fake IT support call.",meta:"",glow:"rgba(185,160,255,.45)"}
 };
@@ -445,11 +462,11 @@ function hub(){
  const f=$("#fin");if(f)f.onclick=finish;$("#back").onclick=title;
 }
 const BRIEF={
- soc:{chip:"SOC Analyst",hook:"Ransomware is spreading.",jobs:["Watch for red PCs","Drag the plug onto them","Don't unplug clean ones"]},
- phi:{chip:"Phishing Investigator",hook:"8 messages. Some are fake.",jobs:["Swipe: phishing or safe","Pin the red flags","Careful: some are real"]},
+ soc:{chip:"SOC Analyst",hook:"Six alerts. Find the real ones.",jobs:["Triage the alerts","Connect the dots","Respond"]},
+ phi:{chip:"Phishing Investigator",hook:"6 messages. Some are fake.",jobs:["Swipe: phishing or safe","Pin the red flags","Careful: some are real"]},
  soe:{chip:"Social Engineering Defender",hook:"Your phone is ringing.",jobs:["Slide to answer","Reply within 30 s","Never share the code"]}
 };
-function brief(k){const b=BRIEF[k];
+function brief(k){if(k==="soc")return socStart();const b=BRIEF[k];
  render(`<div class="top"><span class="chip" style="background:var(--g-${k});color:${k==="soe"?"#1a0f33":"#fff"}">${b.chip.toUpperCase()}</span><span class="ntag">MISSION</span></div>
  <div class="hero">${ART[k](210)}</div><h2 class="disp center">${b.hook}</h2>
  <div class="jobs">${b.jobs.map((j,i)=>`<div class="job"><span class="ntag">0${i+1}</span><span>${j}</span></div>`).join("")}</div>
@@ -458,50 +475,99 @@ function brief(k){const b=BRIEF[k];
 }
 
 /* ================= SOC ANALYST ================= */
-const plugSVG=(c="#2a1a00",s=22)=>`<svg aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 01-12 0zM12 17v5"/><path d="M3 3l18 18" stroke="#c0182f"/></svg>`;
-const pcSVG=(c)=>`<svg aria-hidden="true" width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="${c}" stroke-width="2"><rect x="2" y="2" width="22" height="14" rx="2"/><path d="M9 20h8M13 16v4"/></svg>`;
 let soc;
-function socTop(){return `<div class="top"><span class="chip" style="background:var(--g-soc);color:#fff">SOC ANALYST</span><span class="chip" id="pts">${soc.score} PTS</span></div>`}
-function socStart(){soc={score:0};socContain()}
+const SOC_STEPS=[["Mission","TAP"],["Triage","TAP"],["Connect","DRAG"],["Respond","DRAG"]];
+function socTop(stage){return `<div class="top"><span class="chip" style="background:var(--g-soc);color:#fff">SOC ANALYST</span><span class="chip" id="pts">${soc.score} PTS</span></div>
+ <div class="steps soctabs">${SOC_STEPS.map((s,j)=>`<div class="${j<stage?"done":j===stage?"now":""}"><b>0${j+1}</b> ${s[0].toUpperCase()}<small>${j<stage?"✓ DONE":s[1]}</small></div>`).join("")}</div>`}
 function socAdd(p,el){soc.score=Math.max(0,soc.score+p);const e=$("#pts");if(e)e.textContent=soc.score+" PTS";if(p)floatAt(el||e,(p>0?"+":"")+p,p>0?"#d9ccff":"#ff6b8a")}
-/* stage 1: live infection map */
-function socContain(){
- const pcs=["PC-111","PC-112","PC-113","PC-114","PC-115","PC-116"];
- render(`${socTop()}
- <h2 class="disp">Unplug the red PCs!</h2>
- <div class="net" id="net">
-  <div class="netrow"><div class="node small">☁ INTERNET</div><div class="netlink"></div><div class="node small">FIREWALL</div><div class="netlink"></div><div class="node small">REMOTE-GW</div></div>
-  <div class="bus"></div>
-  <div class="pcs">${pcs.map(p=>`<div class="node" data-pc="${p}">${pcSVG("#c2b0ff")}<span>${p}</span><span class="st2">OK</span></div>`).join("")}</div>
-  <div class="bus"></div>
-  <div class="server" id="srv" data-pc="SERVER"><div style="display:flex;justify-content:space-between"><b>FS-LIB-02 · file server</b><span id="fc">0 files encrypted</span></div><div class="bar"><div id="fb"></div></div></div>
-  <div class="overlay" id="ov"><div class="tool" style="pointer-events:none">${plugSVG()} Isolate</div><p style="font-size:16px;max-width:280px">Drag the plug onto <b style="color:#ff6b8a">red</b> PCs.<br>Don't unplug clean ones.</p><button class="btn soc" id="st" style="width:200px">Go!</button></div>
- </div>
- <div class="tray"><div class="tool" id="plug" aria-label="Isolate tool. Drag onto an infected computer">${plugSVG()} Isolate</div><span class="muted" style="font-size:12.5px">drag me onto a red PC</span></div>
- <div id="fbk"></div>`);
- const st={};pcs.forEach(p=>st[p]="ok");st["PC-114"]="inf";let files=0,ended=false,elapsed=0,cleanIso=0,everInf=new Set(["PC-114"]);
- const paint=()=>$$(".node[data-pc]").forEach(n=>{const s=st[n.dataset.pc];n.classList.toggle("inf",s==="inf");n.classList.toggle("iso",s==="iso"||s==="isoc");
-  n.querySelector(".st2").textContent=s==="inf"?"ENCRYPTING":s==="iso"?"ISOLATED":s==="isoc"?"UNPLUGGED (CLEAN)":"OK";n.querySelector("svg").setAttribute("stroke",s==="inf"?"#fff":s==="ok"?"#c2b0ff":"#7f7098")});
- paint();
- $$(".node[data-pc]").forEach(n=>dropzone(n,"pc"));dropzone($("#srv"),"pc");
- draggable($("#plug"),{accept:["pc"],onDrop:(z)=>{if(ended)return;const id=z.dataset.pc;
-   if(id==="SERVER"){sfx.bad();shake(z);toast("The server is the victim, not the source. Unplug the infected PCs.");return}
-   if(st[id]==="inf"){st[id]="iso";sfx.good();buzz(30);socAdd(0);floatAt(z,"Isolated!","#d9ccff")}
-   else if(st[id]==="ok"){st[id]="isoc";cleanIso++;sfx.bad();shake(z);floatAt(z,"That PC was clean","#ffb547")}
-   paint();check()}});
- const check=()=>{if(ended)return;if(!pcs.some(p=>st[p]==="inf")){finishStage(true)}};
- const finishStage=(contained)=>{ended=true;stopTimers();
-  const saved=pcs.filter(p=>p!=="PC-114"&&!everInf.has(p)).length;
-  const pts=contained?clamp(100+60*saved-25*cleanIso,0,400):clamp(30*saved-25*cleanIso,0,150);socAdd(pts,$("#net"));
-  soc.saved=saved;soc.cleanIso=cleanIso;soc.files=files;soc.contained=contained;paint();contained?sfx.win():sfx.bad();
-  $("#fbk").innerHTML=`<div class="fb ${contained?"ok":"no"}"><b class="t">${contained?`Contained! ${saved}/5 PCs saved`:`Too slow!`}</b>${files.toLocaleString()} files lost${cleanIso?` · ${cleanIso} clean PC${cleanIso>1?"s":""} unplugged`:""}</div><button class="btn soc" id="nb" style="margin-top:12px">See result →</button>`;
-  $("#fbk").scrollIntoView({behavior:"smooth",block:"center"});$("#nb").onclick=socDone};
- $("#st").onclick=()=>{$("#ov").remove();sfx.alarm();
-  every(()=>{if(ended)return;elapsed+=100;const act=pcs.filter(p=>st[p]==="inf").length;files+=act*9;$("#fc").textContent=files.toLocaleString()+" files encrypted";$("#fb").style.width=Math.min(100,files/40)+"%";
-   if(elapsed%3000===0){const clean=pcs.filter(p=>st[p]==="ok");if(act&&clean.length){const v=clean[Math.floor(Math.random()*clean.length)];st[v]="inf";everInf.add(v);paint();sfx.alarm();buzz(60);shake($(`.node[data-pc="${v}"]`))}}
-   if(elapsed>=30000)finishStage(false)},100)};
+const ALERTS=[
+ {id:"vpn",t:"VPN: 3 failed logins, then OK",real:false,why:"A student mistyped their password."},
+ {id:"printer",t:"PRINTER-3 toner low",real:false,why:"Not a security event."},
+ {id:"news",t:"40 emails opened from newsletter@kau.edu.sa",real:false,why:"Real university domain, normal activity."},
+ {id:"gw",t:"REMOTE-GW security update 94 days overdue",real:true,why:"An unpatched gateway is an open door.",short:"Gateway update overdue"},
+ {id:"login",t:"svc_backup login from abroad at 01:52",real:true,why:"A service account shouldn't log in from another country at night.",short:"svc_backup login from abroad"},
+ {id:"locker",t:"PC-114 new program locker.exe started",real:true,why:"Unknown program, started right after that login.",short:"locker.exe started on PC-114"}
+];
+const REAL=["gw","login","locker"];
+const alertById=id=>ALERTS.find(a=>a.id===id);
+function socStart(){soc={score:0,tri:0,line:0,resp:0};socIntro()}
+/* step 1 · TAP · read the mission */
+function socIntro(){
+ render(`${socTop(0)}
+ <div class="hero">${ART.soc(190)}</div>
+ <h2 class="disp center">Night shift</h2>
+ <div class="card center" style="font-size:16px;line-height:1.55">You're on the night shift. Six alerts just hit your queue. Most alerts are noise. Find the real ones before the attack spreads.</div>
+ <div class="grow"></div>
+ <button class="btn soc" id="go">Go!</button><button class="link" id="back">← Back</button>`);
+ $("#go").onclick=()=>{sfx.alarm();socTriage()};$("#back").onclick=hub;
 }
-function socDone(){result("soc",soc.score,soc.contained?`${soc.saved}/5 PCs saved`:"Not contained in time")}
+/* step 2 · TAP · triage the queue (30 s) */
+function socTriage(){
+ const q=shuffle(ALERTS),T=30;let i=0,left=T,waiting=false,over=false;const answers={};
+ render(`${socTop(1)}
+ <div class="top"><h2 class="disp" style="font-size:22px">Real or false alarm?</h2>
+  <div class="timer" aria-label="time left"><svg width="54" height="54"><circle cx="27" cy="27" r="23" stroke="#30263f" stroke-width="5" fill="none"/><circle id="tr" cx="27" cy="27" r="23" stroke="#b39dff" stroke-width="5" fill="none" stroke-dasharray="144.5" stroke-dashoffset="0" stroke-linecap="round"/></svg><span id="tl">${T}</span></div></div>
+ <div class="alertq" id="aq"></div>
+ <div class="tribtns" id="tb"><button class="btn realb" id="br">Real</button><button class="btn ghost" id="bf">False alarm</button></div>
+ <div id="fbk"></div><div class="grow"></div><div id="nx"></div>`);
+ const show=()=>{const a=q[i];waiting=false;
+  $("#aq").innerHTML=`<div class="mono lab" style="margin-bottom:8px">ALERT ${i+1} / ${q.length}</div><div class="aqt">${esc(a.t)}</div>`;
+  $("#aq").classList.remove("pop");void $("#aq").offsetWidth;$("#aq").classList.add("pop");
+  $("#fbk").innerHTML="";$("#nx").innerHTML="";$("#br").disabled=false;$("#bf").disabled=false;tone(620,.06,"square",.03)};
+ const reasonHTML=(a,ok,label)=>`<div class="fb ${ok?"ok":"no"}" style="padding:12px 14px"><b class="t">${label}</b><div class="reason" style="margin-top:6px"><b>${a.real?"Real":"False alarm"}:</b> ${a.why}</div></div>`;
+ const answer=(saidReal)=>{if(waiting||over)return;waiting=true;const a=q[i],ok=saidReal===a.real;answers[a.id]=ok;
+  $("#br").disabled=true;$("#bf").disabled=true;
+  if(ok){soc.tri+=30;socAdd(30,$("#aq"));sfx.good();buzz(20)}else{sfx.bad();buzz(70);shake($("#aq"))}
+  $("#fbk").innerHTML=reasonHTML(a,ok,ok?"Correct":"Not quite");
+  const last=i===q.length-1;$("#nx").innerHTML=`<button class="btn soc" id="nb">${last?"Next step →":"Next alert →"}</button>`;
+  $("#nb").onclick=()=>{if(last)return finishTri();i++;show()};};
+ const finishTri=()=>{over=true;stopTimers();
+  const missed=q.filter(a=>answers[a.id]===undefined);const right=Object.values(answers).filter(Boolean).length;
+  $("#tb").style.display="none";$("#aq").innerHTML=`<div class="aqt" style="text-align:center">Triage: ${right} / 6 correct</div>`;
+  $("#fbk").innerHTML=missed.length?`<div class="fb no" style="padding:12px 14px"><b class="t">Time's up · ${missed.length} not answered</b><div class="reasons" style="margin-top:6px">${missed.map(a=>`<div class="reason"><b>${a.real?"Real":"False alarm"}:</b> ${esc(a.t)}. ${a.why}</div>`).join("")}</div></div>`:"";
+  $("#nx").innerHTML=`<button class="btn soc" id="nb">Next step →</button>`;$("#nb").onclick=socConnect;right>=5?sfx.win():null};
+ $("#br").onclick=()=>answer(true);$("#bf").onclick=()=>answer(false);
+ show();
+ every(()=>{if(waiting||over)return;left=Math.max(0,left-.1);const tl=$("#tl"),tr=$("#tr");if(!tl)return;tl.textContent=Math.ceil(left);tr.setAttribute("stroke-dashoffset",144.5*(1-left/T));if(left<=8)tr.setAttribute("stroke","#ff6b8a");
+  if(left<=0){sfx.bad();finishTri()}},100);
+}
+/* step 3 · DRAG · connect the dots */
+function socConnect(){
+ const cards=shuffle(REAL),SLOTS=[["How they got in","gw"],["What they did","login"],["What they launched","locker"]];
+ render(`${socTop(2)}
+ <h2 class="disp" style="font-size:22px">Connect the dots</h2>
+ <div class="chips" id="ch">${cards.map(id=>`<div class="chipd" data-id="${id}"><span class="grip"></span><span>${esc(alertById(id).t)}</span></div>`).join("")}</div>
+ <div class="slots">${SLOTS.map((s,n)=>`<div class="slot"><div class="n">${n+1}</div><div class="zone" data-n="${n}"><div class="ph">${s[0].toUpperCase()}</div></div></div>`).join("")}</div>
+ <button class="btn soc" id="ck" disabled>Check</button><div id="fbk"></div>`);
+ const list=$("#ch");dropzone(list,"list");$$(".slot .zone").forEach(z=>dropzone(z,"slot"));let done=false;
+ const upd=()=>{$$(".slot .zone").forEach(z=>{const ph=$(".ph",z);if(ph)ph.style.display=$(".chipd",z)?"none":""});$("#ck").disabled=$$(".slot .chipd").length!==3};
+ $$("#ch .chipd").forEach(el=>draggable(el,{accept:["slot","list"],onDrop:(z,el)=>{if(done)return;
+  if(z.dataset.drop==="slot"){const ex=$(".chipd",z);if(ex&&ex!==el){(el.parentElement.dataset.drop==="slot"?el.parentElement:list).appendChild(ex);ex.classList.toggle("placed",ex.parentElement.dataset.drop==="slot")}z.appendChild(el);el.classList.add("placed")}
+  else{list.appendChild(el);el.classList.remove("placed")}upd()}}));
+ $("#ck").onclick=()=>{if(done)return;done=true;$("#ck").remove();let good=0;const fixes=[];const pts=[34,33,33];let earned=0;
+  $$(".slot .zone").forEach(z=>{const n=+z.dataset.n,el=$(".chipd",z),id=el.dataset.id,ok=id===SLOTS[n][1];el.classList.add(ok?"good":"badc");el.dataset.off=1;
+   if(ok){good++;earned+=pts[n]}else fixes.push(`<div class="reason"><b>${SLOTS[n][0]}:</b> ${alertById(SLOTS[n][1]).short}</div>`)});
+  soc.line=earned;socAdd(earned,$(".slots"));good===3?sfx.win():sfx.bad();
+  $("#fbk").innerHTML=`<div class="fb ${good===3?"ok":"no"}" style="padding:12px 14px"><b class="t">${good===3?"Trail found!":`${good} / 3 in the right place`}</b>${good===3?"Missed update → stolen login → ransomware.":`<div class="reasons" style="margin-top:6px">${fixes.join("")}</div>`}</div><button class="btn soc" id="nb" style="margin-top:12px">Next step →</button>`;
+  $("#fbk").scrollIntoView({behavior:"smooth",block:"center"});$("#nb").onclick=socRespond};
+}
+/* step 4 · DRAG · respond */
+function socRespond(){
+ const ACT=[["isolate","Isolate PC-114","locker"],["reset","Reset the svc_backup password","login"],["update","Install the gateway update","gw"]];
+ const acts=shuffle(ACT),targets=shuffle(REAL);let placed=0;const tried={};
+ render(`${socTop(3)}
+ <h2 class="disp" style="font-size:22px">Respond</h2>
+ <p class="muted" style="margin-top:-6px">Drag each action onto the alert it fixes.</p>
+ <div class="pins actpins" id="acts">${acts.map(a=>`<div class="actchip" data-a="${a[0]}">${esc(a[1])}</div>`).join("")}</div>
+ <div class="chips" id="tg">${targets.map(id=>`<div class="target" data-t="${id}"><span class="tlab">${esc(alertById(id).t)}</span><span class="tfix"></span></div>`).join("")}</div>
+ <div id="fbk"></div>`);
+ $$("#tg .target").forEach(t=>dropzone(t,"tg"));
+ $$("#acts .actchip").forEach(c=>draggable(c,{accept:["tg"],onDrop:(z,el)=>{const a=ACT.find(x=>x[0]===el.dataset.a);if(z.classList.contains("fixed"))return;
+  if(z.dataset.t===a[2]){const p=tried[a[0]]?20:40;soc.resp+=p;socAdd(p,z);sfx.good();buzz(25);z.classList.add("fixed");$(".tfix",z).textContent="✓ "+a[1];el.classList.add("used");el.dataset.off=1;placed++;
+   if(placed===3){sfx.win();$("#fbk").innerHTML=`<div class="fb ok" style="padding:12px 14px"><b class="t">Attack stopped</b>Isolated, password reset, gateway patched.</div><button class="btn soc" id="nb" style="margin-top:12px">See result →</button>`;$("#nb").onclick=socDone;$("#fbk").scrollIntoView({behavior:"smooth",block:"center"})}}
+  else{tried[a[0]]=1;sfx.bad();shake(z);toast(`“${a[1]}” fixes: ${alertById(a[2]).short}.`)}}}));
+}
+function socDone(){result("soc",soc.score,"The attack started with a missed update.")}
 
 /* ================= PHISHING INVESTIGATOR ================= */
 const MSGS=[
@@ -513,15 +579,11 @@ const MSGS=[
   flags:{sender:"<b>Fake domain:</b> kau-edu-sa<b>.com</b> ≠ kau.edu.sa.",urgent:"<b>Urgency:</b> “expires in 3 hours”.",ask:"<b>Asks for your password.</b>",link:"<b>Fake link:</b> the lookalike site."}},
  {kind:"SMS",from:[["ALWAHA BANK",null]],body:[["Purchase of 45.00 SAR at a bookstore with your card ending 2290. If this wasn't you, call the number on the back of your card.",null]],phish:false,
   safe:"No link, no code request. Uses the number on your card."},
- {kind:"EMAIL",from:[["MegaMart Rewards <",null],["winner@megamart-prize.top","sender"],[">",null]],subj:"Congratulations, you've won!",body:[["You've been selected to win a brand-new phone! ",'tooGood'],["Just pay 9.99 SAR shipping",'money'],[" at ",null],["megamart-prize.top/claim","link"],[". Offer ends ",null],["today",'urgent'],["!",null]],phish:true,
-  flags:{sender:"<b>Odd sender:</b> a strange .top domain.",tooGood:"<b>Too good to be true.</b>",money:"<b>Asks for money:</b> a “small fee”.",link:"<b>Fake link:</b> a prize site.",urgent:"<b>Urgency:</b> “today”."}},
  {kind:"SMS",from:[["ALWAHA BANK",null]],body:[["Your account has been ",null],["suspended",'threat'],[". ",null],["Reply with the code we just sent you",'ask'],[" to reactivate it.",null]],phish:true,
   flags:{threat:"<b>Threat:</b> “suspended”.",ask:"<b>Asks for your OTP code.</b> Banks never do."},
   note:"SMS sender names can be faked."},
  {kind:"EMAIL",from:[["ParcelSwift <notifications@parcelswift.com>",null]],subj:"Your parcel arrives today",body:[["Good news! Your parcel will be delivered today between 2 and 5 PM. You can follow it in the ParcelSwift app.",null]],phish:false,
   safe:"Real domain, no payment, points to the app."},
- {kind:"EMAIL",from:[["Accounts <",null],["billing@quickpay-invoices.net","sender"],[">",null]],subj:"Invoice #88213 overdue",body:[["Please open the ",null],["attached invoice (Invoice_88213.zip)",'attach'],[" and pay ",null],["within 24 hours",'urgent'],[" to avoid ",null],["legal action",'threat'],[".",null]],phish:true,
-  flags:{sender:"<b>Odd sender:</b> an unknown company.",attach:"<b>Surprise .zip file:</b> can hide malware.",urgent:"<b>Urgency:</b> “within 24 hours”.",threat:"<b>Threat:</b> “legal action”."}}
 ];
 let phi;
 function phiStart(){phi={i:0,score:0,verdicts:0,flagsFound:0,flagsTotal:0,streak:0,best:0};phiCard()}
@@ -585,7 +647,7 @@ function phiFlags(ok,keys,bonus){
   const b=$("#ck");b.textContent=phi.i<MSGS.length-1?"Next message →":"See your result →";b.onclick=phiNext;
  };
 }
-function phiNext(){phi.i++;if(phi.i<MSGS.length)phiCard();else result("phi",phi.score,`${phi.verdicts}/8 correct · ${phi.flagsFound}/${phi.flagsTotal} flags`)}
+function phiNext(){phi.i++;if(phi.i<MSGS.length)phiCard();else result("phi",phi.score,`${phi.verdicts}/${MSGS.length} correct · ${phi.flagsFound}/${phi.flagsTotal} flags`)}
 
 /* ================= SOCIAL ENGINEERING ================= */
 const CALL=[
@@ -658,7 +720,7 @@ function soeDone(){result("soe",soe.score,`${soe.safe}/3 safe replies`)}
 
 /* ================= RESULT & FINISH ================= */
 const LEARN={
- soc:["Isolate infected PCs first","It got in through a missing update","Patch, restore from backup, never pay"],
+ soc:["Most alerts are noise: triage fast","Missed update → stolen login → ransomware","Isolate, reset the password, patch"],
  phi:["Check the real domain","Urgency is a red flag","Never send passwords or codes"],
  soe:["Caller ID can be faked","Never share an OTP","Call the official number yourself"]
 };
