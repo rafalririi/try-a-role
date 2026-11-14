@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try a Role: Stop the Attack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>@font-face{font-family:"Russo One";font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format("woff2")}
+
+:root{
+  --bg:#0c0913; --surf:#18121f; --surf2:#221a30; --line:#30263f; --text:#f2eefa; --muted:#b6abc9;
+  --soc1:#6d4aff; --soc2:#b39dff; --phi1:#c04cff; --phi2:#ff6fd8; --soe1:#8f6bff; --soe2:#d9ccff;
+  --ok:#9ff0cf; --bad:#ff6b8a; --warn:#ffc46b;
+  --g-soc:linear-gradient(135deg,var(--soc1),var(--soc2));
+  --g-phi:linear-gradient(135deg,var(--phi1),var(--phi2));
+  --g-soe:linear-gradient(135deg,var(--soe1),var(--soe2));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 15% 0%,rgba(124,92,255,.30),transparent 40%),radial-gradient(circle at 90% 100%,rgba(192,76,255,.16),transparent 40%),
+  linear-gradient(rgba(200,180,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,180,255,.03) 1px,transparent 1px);
+  background-size:auto,auto,32px 32px,32px 32px;background-attachment:fixed}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+h1:focus,h2:focus{outline:none}
+#app{max-width:480px;min-height:100%;margin:0 auto;padding:22px 18px 28px;display:flex;flex-direction:column}
+.screen{display:flex;flex-direction:column;gap:16px;flex:1;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.sg{font-family:"Space Grotesk",Inter,sans-serif}
+.lab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chip{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;letter-spacing:.1em;padding:6px 10px;border-radius:999px;background:var(--surf2);color:var(--muted);white-space:nowrap}
+h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:38px;line-height:1.02;letter-spacing:-.01em}
+h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:26px;line-height:1.1}
+h3{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:19px;line-height:1.2}
+p{line-height:1.5}
+.muted{color:var(--muted)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:16px}
+.btn{min-height:56px;border-radius:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 18px;transition:transform .12s,filter .12s}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:#f2eefa;color:#0c0913}
+.btn.ghost{border:1px solid var(--line);color:var(--text);background:var(--surf)}
+.btn.soc{background:var(--g-soc);color:#fff}.btn.phi{background:var(--g-phi);color:#fff}.btn.soe{background:var(--g-soe);color:#1a0f33}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.link{color:#cbb8ff;text-decoration:underline;text-underline-offset:3px;font-size:14px;align-self:center;padding:8px}
+.grow{flex:1}
+/* hub tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{position:relative;border-radius:24px;padding:16px;min-height:158px;text-align:left;display:flex;flex-direction:column;gap:6px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.35);transition:transform .15s}
+.tile:hover{transform:translateY(-2px)}
+.tile.wide{grid-column:span 2;min-height:132px}
+.tile:not(.wide) .art{opacity:.16;bottom:-34px;right:-22px}
+.tile .ico{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
+.tile .nm{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;line-height:1.1;margin-top:auto}
+.tile .at{font-size:13px;opacity:.9}
+.tile .st{position:absolute;top:14px;right:14px;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;padding:5px 9px;border-radius:999px;background:rgba(0,0,0,.25);color:#fff}
+.tile .art{position:absolute;right:-10px;bottom:-14px;opacity:.28;pointer-events:none}
+.tile.soc{background:var(--g-soc);color:#fff}.tile.phi{background:var(--g-phi);color:#fff}.tile.soe{background:var(--g-soe);color:#1a0f33}
+.tile.soe .ico{background:rgba(0,0,0,.12)}.tile.soe .st{background:rgba(0,0,0,.2)}
+.tile.locked{background:var(--surf);border:1px dashed #46395f;box-shadow:none;color:#d8cfe8}
+.tile.locked .ico{background:rgba(255,255,255,.06)}
+.tile.locked .st{background:var(--surf2);color:var(--muted)}
+.tile.done::after{content:"";position:absolute;inset:0;border-radius:24px;box-shadow:inset 0 0 0 3px rgba(255,255,255,.75)}
+/* hero art */
+.hero{display:flex;justify-content:center;padding:6px 0}
+/* steps */
+.steps{display:flex;gap:6px}
+.steps div{flex:1;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-align:center;padding:7px 0;border-radius:8px;background:var(--surf2);color:var(--muted)}
+.steps .done{background:#2a1d4a;color:#c2b0ff}.steps .now{background:var(--g-soc);color:#fff}
+/* options */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:var(--surf);border:1px solid var(--line);text-align:left;font-size:15px;line-height:1.4;transition:background .15s,border-color .15s}
+.opt:hover{border-color:#5b4a7a}
+.opt .k{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:12px;min-width:24px;height:24px;border-radius:7px;border:1px solid #5b4a7a;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:rgba(124,245,200,.1)}.opt.right .k{border-color:var(--ok);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:rgba(255,107,138,.1)}.opt.wrong .k{border-color:var(--bad);color:var(--bad)}
+.opt.half{border-color:var(--warn);background:rgba(255,181,71,.1)}.opt.half .k{border-color:var(--warn);color:var(--warn)}
+.fb.mid{background:rgba(255,181,71,.1);border:1px solid rgba(255,181,71,.45)}
+.opt[disabled]{cursor:default}
+.fb{border-radius:16px;padding:14px 16px;font-size:14.5px;line-height:1.5}
+.fb.ok{background:rgba(124,245,200,.1);border:1px solid rgba(124,245,200,.4)}
+.fb.no{background:rgba(255,107,138,.1);border:1px solid rgba(255,107,138,.4)}
+.fb b.t{display:block;font-family:"Space Grotesk",sans-serif;font-size:17px;margin-bottom:3px}
+/* timer */
+.timer{position:relative;width:54px;height:54px;flex:none}
+.timer svg{transform:rotate(-90deg)}
+.timer span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px}
+/* alert / log */
+.alert{border-radius:16px;padding:14px;background:#1e1226;border:1px solid #5e2a52}
+.log{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.7;background:#110c1b;border:1px solid var(--line);border-radius:14px;padding:12px;overflow-x:auto;white-space:pre}
+/* phishing */
+.stack{position:relative;height:410px;touch-action:pan-y}
+.stack .ghost{position:absolute;inset:14px 14px 0;border-radius:22px;background:var(--surf2);transform:rotate(3deg)}
+.msg{position:absolute;inset:0;border-radius:22px;background:#f6f7fb;color:#14161b;padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 30px rgba(0,0,0,.45);user-select:none;cursor:grab;transition:transform .25s ease}
+.msg.dragging{transition:none;cursor:grabbing}
+.msg .kind{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;color:#5b616c}
+.msg .from{font-size:13.5px;color:#4b515c;line-height:1.4}
+.msg .subj{font-weight:700;font-size:16px}
+.msg .body{font-size:15.5px;line-height:1.5}
+.msg .bubble{background:#e6e9ef;border-radius:16px;padding:12px 14px}
+.stamp{position:absolute;top:22px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;padding:4px 12px;border-radius:10px;border:3px solid;opacity:0;pointer-events:none}
+.stamp.l{left:18px;color:#e2531f;border-color:#e2531f;transform:rotate(-12deg)}
+.stamp.r{right:18px;color:#0f9a6e;border-color:#0f9a6e;transform:rotate(12deg)}
+.seg{border-radius:5px;padding:1px 2px;transition:background .15s;cursor:pointer}
+.flagmode .seg{background:rgba(20,22,27,.05);box-shadow:inset 0 -2px 0 rgba(20,22,27,.2)}
+.flagmode .seg.picked{background:#ffe1c7;box-shadow:inset 0 -2px 0 #e86c1a}
+.flagmode .seg.hit{background:#c9f5e4;box-shadow:inset 0 -2px 0 #0f9a6e}
+.flagmode .seg.miss{background:#ffd6de;box-shadow:inset 0 -2px 0 #d23a5c;text-decoration:line-through}
+.flagmode .seg.missed{background:#fff2b8;box-shadow:inset 0 -2px 0 #c99a00}
+.msgstatic{position:relative;border-radius:22px;background:#f6f7fb;color:#14161b;padding:18px;display:flex;flex-direction:column;gap:10px}
+.reasons{display:flex;flex-direction:column;gap:8px}
+.reason{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.45}
+.reason b{color:#f3a8ff}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:4px}
+/* call */
+.caller{display:flex;align-items:center;gap:12px}
+.avatar{width:50px;height:50px;border-radius:50%;background:var(--surf2);display:flex;align-items:center;justify-content:center;position:relative}
+.avatar::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--soe1);animation:ring 1.6s infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
+.meter{height:10px;border-radius:999px;background:var(--surf2);overflow:hidden}
+.meter div{height:100%;border-radius:999px;background:linear-gradient(90deg,#ffb547,#ff6fd8);transition:width .6s ease}
+.chat{display:flex;flex-direction:column;gap:9px}
+.bub{max-width:86%;padding:11px 14px;border-radius:18px;font-size:15px;line-height:1.45;animation:in .3s ease}
+.bub.them{background:var(--surf2);border-bottom-left-radius:6px;align-self:flex-start}
+.bub.me{background:var(--g-soe);color:#1a0f33;border-bottom-right-radius:6px;align-self:flex-end;font-weight:500}
+/* result */
+.big{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:56px;line-height:1}
+.rows{display:flex;flex-direction:column}
+.rows div{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.4}
+.rows div:last-child{border:0}
+.tip{border-radius:22px;padding:18px;background:#f5f2ea;color:#14161b}
+.tip .lab{color:#5d6370}
+.badge{width:96px;height:96px;margin:0 auto;animation:pop .6s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.2) rotate(-30deg);opacity:0}to{transform:none;opacity:1}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#f2eefa;color:#0c0913;padding:12px 16px;border-radius:14px;font-size:14px;font-weight:500;max-width:90vw;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:50;animation:in .25s ease}
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40}
+.foot{text-align:center;font-size:12px;color:#9085a8;margin-top:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (min-width:700px){ #app{padding-top:40px} h1{font-size:44px} }
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- v2: drag & interaction ---------- */
+.ghost-drag{position:fixed;left:0;top:0;z-index:60;pointer-events:none;opacity:.95;transform-origin:center;box-shadow:0 18px 40px rgba(0,0,0,.55)!important;transition:none!important}
+.lifted{opacity:.35}
+.sel{outline:3px solid #e4d9ff;outline-offset:3px}
+[data-drop].over{outline:3px dashed #e4d9ff;outline-offset:4px}
+.drag{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.drag:active{cursor:grabbing}
+.float{position:fixed;z-index:70;pointer-events:none;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;text-shadow:0 2px 10px rgba(0,0,0,.6);animation:floatup 1s ease forwards}
+@keyframes floatup{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,-60px)}}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.sound{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;padding:6px 10px;border-radius:999px;background:var(--surf2);color:var(--muted)}
+.hint{font-size:13px;color:#e4d9ff;text-align:center;font-weight:600}
+.pulse{animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+
+/* tool tray */
+.tray{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px;border-radius:18px;background:var(--surf);border:1px dashed #46395f}
+.tool{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;background:linear-gradient(135deg,#e4d9ff,#a98bff);color:#1a0f33;box-shadow:0 8px 24px rgba(169,139,255,.35)}
+
+/* network map */
+.net{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:20px;background:#110c1b;border:1px solid var(--line);position:relative}
+.netrow{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.netlink{flex:1;height:3px;background:repeating-linear-gradient(90deg,#6d4aff 0 6px,transparent 6px 12px);opacity:.6}
+.bus{height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,#6d4aff,transparent);opacity:.7}
+.pcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.node{border-radius:14px;padding:9px 6px 8px;background:var(--surf2);border:2px solid #3b2f55;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:#ddd5ea;position:relative;transition:background .2s,border-color .2s;min-height:68px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.node .st2{font-size:9px;letter-spacing:.08em;padding:2px 6px;border-radius:999px;background:rgba(124,245,200,.14);color:var(--ok)}
+.node.inf{background:#3a1033;border-color:#ff6fd8;color:#fff;animation:infpulse .9s infinite}
+.node.inf .st2{background:#ff6fd8;color:#fff}
+@keyframes infpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,111,216,.6)}50%{box-shadow:0 0 0 7px rgba(255,111,216,0)}}
+.node.iso{background:#16111f;border-color:#5b4a7a;border-style:dashed;color:#a598ba}
+.node.iso .st2{background:#33284a;color:#d8cfe8}
+.node.small{min-height:auto;padding:7px 8px;flex-direction:row;gap:6px}
+.server{border-radius:14px;padding:10px 12px;background:var(--surf2);border:2px solid #3b2f55;font-family:"IBM Plex Mono",monospace;font-size:12px}
+.bar{height:8px;border-radius:999px;background:#251c35;overflow:hidden;margin-top:6px}
+.bar div{height:100%;background:linear-gradient(90deg,#ffb547,#ff6fd8);width:0;transition:width .1s linear}
+.overlay{position:absolute;inset:0;border-radius:20px;background:rgba(7,11,22,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:20px;z-index:5}
+
+/* chips & slots */
+.chips{display:flex;flex-direction:column;gap:8px}
+.chipd{padding:11px 13px;border-radius:13px;background:var(--surf2);border:1px solid #3e3157;font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.45;color:#e9e3f3;text-align:left;display:flex;gap:10px;align-items:center}
+.chipd .grip{flex:none;width:10px;height:18px;background:radial-gradient(circle,#7f7098 1.4px,transparent 1.6px) 0 0/5px 6px;opacity:.9}
+.chipd.placed{background:#2a1d4a;border-color:#6d4aff}
+.chipd.good{background:rgba(124,245,200,.12);border-color:var(--ok)}
+.chipd.badc{background:rgba(255,107,138,.12);border-color:var(--bad)}
+.zone{min-height:74px;border-radius:16px;border:2px dashed #4c3b72;background:rgba(124,92,255,.07);padding:10px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.zone .ph{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;color:#9686b2;text-align:center}
+.fw{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:16px;margin-bottom:6px}
+.slots{display:flex;flex-direction:column;gap:8px}
+.slot{display:flex;gap:10px;align-items:stretch}
+.slot .n{flex:none;width:34px;border-radius:10px;background:var(--surf2);display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;color:#c2b0ff}
+.slot .zone{flex:1;min-height:52px;padding:6px}
+
+/* phishing flags */
+.pins{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px;border-radius:16px;background:var(--surf);border:1px dashed #5a2a6a}
+.pin{width:46px;height:46px;border-radius:12px;background:var(--g-phi);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(192,76,255,.3)}
+.pin.used{visibility:hidden}
+.flagmode .seg.picked::before{content:"";display:inline-block;width:12px;height:14px;margin-right:3px;vertical-align:-2px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 14'><path d='M1 0v14' stroke='%23e2531f' stroke-width='2'/><path d='M2 1h9l-2 3 2 3H2z' fill='%23ff3d77'/></svg>") no-repeat}
+.swipehint{animation:wiggle 2.2s ease-in-out 2}
+@keyframes wiggle{0%,100%{transform:none}20%{transform:translateX(-28px) rotate(-3deg)}45%{transform:translateX(28px) rotate(3deg)}65%{transform:none}}
+
+/* phone call */
+.callscreen{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding-top:30px}
+.bigav{width:120px;height:120px;border-radius:50%;background:var(--surf2);display:flex;align-items:center;justify-content:center;position:relative}
+.bigav::before,.bigav::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid var(--soe1);animation:ring 1.8s infinite}
+.bigav::after{animation-delay:.9s}
+.slider{position:relative;height:66px;border-radius:999px;background:var(--surf);border:1px solid var(--line);overflow:hidden;width:100%}
+.slider .lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--muted);font-size:15px;letter-spacing:.02em;pointer-events:none}
+.slider .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;opacity:.35}
+.slider .knob{position:absolute;left:5px;top:5px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;z-index:2}
+.slider.green .knob,.slider.green .fill{background:var(--g-soe)}
+.slider.red .knob,.slider.red .fill{background:linear-gradient(135deg,#ff6fd8,#ff6b8a)}
+.notif{position:fixed;left:50%;top:12px;width:min(440px,92vw);transform:translate(-50%,-140%);z-index:55;background:rgba(238,243,255,.97);color:#111;border-radius:18px;padding:12px 14px;box-shadow:0 14px 34px rgba(0,0,0,.5);display:flex;gap:12px;align-items:center;transition:transform .35s cubic-bezier(.2,1.2,.4,1);touch-action:none;cursor:grab}
+.notif.show{transform:translate(-50%,0)}
+.notif .ic{flex:none;width:38px;height:38px;border-radius:10px;background:#8f6bff;display:flex;align-items:center;justify-content:center}
+.turnbar{height:6px;border-radius:999px;background:var(--surf2);overflow:hidden}
+.turnbar div{height:100%;background:var(--g-soe);width:100%}
+
+.toast{bottom:auto!important;top:16px;pointer-events:none}
+.flagmode .body,.flagmode .from{line-height:1.9}
+.flagmode .seg{padding:3px 3px}
+
+/* ---------- v3 hub: reference-style role cards ---------- */
+#app.wide{max-width:1080px}
+.hubhead{max-width:640px}
+.hubh{font-size:46px;font-weight:500;letter-spacing:-.025em;line-height:1}
+.grad{background:linear-gradient(90deg,#b39dff,#e4d9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rlab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b39dff}
+.rgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:760px){.rgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.hubh{font-size:60px}}
+.rcard{position:relative;text-align:left;display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;border-radius:26px;
+ background:linear-gradient(180deg,#1c1528,#120e1b);border:1px solid #2f2545;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 18px 40px rgba(0,0,0,.35);
+ transition:transform .2s,border-color .2s,box-shadow .2s;overflow:hidden}
+.rcard:hover,.rcard:focus-visible{transform:translateY(-4px);border-color:#7b62d6;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 24px 50px rgba(77,50,170,.35)}
+.rcard.done{border-color:#4a3a78}
+.rtop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rdone{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;padding:4px 9px;border-radius:999px;background:rgba(159,240,207,.12);color:#9ff0cf}
+.rart{position:relative;display:flex;justify-content:center;align-items:center;height:150px;margin:2px 0 4px}
+.rart::before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 68%);filter:blur(6px)}
+.rart svg{position:relative}
+.rname{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px;line-height:1.1;color:#f2eefa}
+.rdesc{font-size:14px;line-height:1.45;color:#b6abc9;min-height:40px}
+.rfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.rpill{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;padding:10px 18px;border-radius:999px;background:linear-gradient(135deg,#e4d9ff,#a98bff);color:#1a0f33}
+.rmeta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#a598ba;letter-spacing:.04em}
+@media (max-width:759px){.rcard{display:grid;grid-template-columns:110px 1fr;grid-template-areas:"top top" "art name" "art desc" "foot foot";column-gap:14px;row-gap:4px}
+ .rtop{grid-area:top}.rart{grid-area:art;height:110px;margin:0}.rart::before{width:120px;height:120px}.rart svg{width:118px;height:94px}
+ .rname{grid-area:name;align-self:end;font-size:20px}.rdesc{grid-area:desc;min-height:0;font-size:13.5px}.rfoot{grid-area:foot;margin-top:8px}}
+
+/* ---------- v4: HUD / display style ---------- */
+.disp,h1,h2{font-family:"Russo One","Space Grotesk",Inter,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em}
+h1{text-shadow:0 0 28px rgba(169,139,255,.35)}
+.xl{font-size:42px;line-height:1}
+@media (min-width:700px){.xl{font-size:52px}}
+.hubh{font-size:40px!important;line-height:1.02;font-weight:400!important}
+@media (min-width:760px){.hubh{font-size:58px!important}}
+h2.disp{font-size:26px;line-height:1.1}
+.center{text-align:center}
+.glitch{position:relative;display:inline-block;color:#cdb8ff;text-shadow:0 0 18px rgba(169,139,255,.65),0 0 2px #fff}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;pointer-events:none}
+.glitch::before{color:#ff6fd8;transform:translateX(-3px);clip-path:inset(18% 0 58% 0);opacity:.85;text-shadow:none}
+.glitch::after{color:#7c5cff;transform:translateX(3px);clip-path:inset(62% 0 12% 0);opacity:.9;text-shadow:none}
+@media (prefers-reduced-motion:no-preference){.glitch::before{animation:gl1 3.2s infinite steps(1)}.glitch::after{animation:gl2 2.7s infinite steps(1)}}
+@keyframes gl1{0%,88%,100%{transform:translateX(-3px);clip-path:inset(18% 0 58% 0)}90%{transform:translateX(5px);clip-path:inset(40% 0 35% 0)}94%{transform:translateX(-6px);clip-path:inset(8% 0 80% 0)}}
+@keyframes gl2{0%,85%,100%{transform:translateX(3px);clip-path:inset(62% 0 12% 0)}88%{transform:translateX(-5px);clip-path:inset(30% 0 50% 0)}93%{transform:translateX(6px);clip-path:inset(75% 0 5% 0)}}
+.ntag{display:inline-flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;letter-spacing:.12em;color:#d9ccff;border:1.5px solid #a98bff;padding:3px 8px;border-radius:3px;box-shadow:0 0 12px rgba(169,139,255,.35),inset 0 0 8px rgba(169,139,255,.15);background:rgba(124,92,255,.08)}
+.sechead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sechead::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#a98bff,transparent)}
+.rlab{display:inline-flex;align-items:center;gap:8px}
+.rname{text-transform:uppercase;font-size:20px!important;letter-spacing:.01em}
+.jobs{display:flex;flex-direction:column;gap:10px;align-items:center}
+.job{display:flex;gap:12px;align-items:center;font-size:16px;font-weight:500;width:100%;max-width:320px;padding:12px 14px;border-radius:12px;background:#18121f;border:1px solid #30263f}
+.learn{display:flex;flex-direction:column;gap:8px}
+.learn div{display:flex;gap:10px;align-items:center;font-size:15px;padding:11px 14px;border-radius:12px;background:#18121f;border:1px solid #30263f}
+.dotk{flex:none;width:8px;height:8px;border-radius:2px;background:#a98bff;box-shadow:0 0 8px #a98bff}
+.hab{display:flex;gap:12px;align-items:center;padding:8px 0;font-size:15px}
+.hico{flex:none;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.btn{font-family:"Russo One","Space Grotesk",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:16px}
+.rpill{font-family:"Russo One","Space Grotesk",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+.circuit{position:fixed;inset:0;pointer-events:none;opacity:.22;z-index:0}
+#app{position:relative;z-index:1}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<main id="app" aria-live="polite"></main>
+<script>
+"use strict";
+/* ---------------- icons & art ---------------- */
+const ICON={
+ soc:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+ phi:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+ soe:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
+ pen:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
+ dfi:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>'
+};
+const ico=(k,c="currentColor",s=24)=>`<svg aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+
+const ART={
+ soc:(s=200)=>`<svg aria-hidden="true" width="${s}" height="${s*0.8}" viewBox="0 0 200 160"><defs><linearGradient id="as1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d4aff"/><stop offset="1" stop-color="#b39dff"/></linearGradient></defs>
+  <rect x="18" y="20" width="124" height="86" rx="10" fill="#18121f" stroke="url(#as1)" stroke-width="4"/>
+  <rect x="30" y="32" width="100" height="62" rx="5" fill="#110c1b"/>
+  <path d="M40 80 L58 62 L72 72 L92 46 L118 70" stroke="#b39dff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80 112h0M62 128h36" stroke="#6d4aff" stroke-width="6" stroke-linecap="round"/><rect x="74" y="106" width="12" height="20" fill="#6d4aff"/>
+  <path d="M150 54l30 11v22c0 19-13 30-30 34-17-4-30-15-30-34V65z" fill="url(#as1)"/><path d="M138 86l9 9 17-18" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(108 18)"><path d="M14 0 L28 24 H0Z" fill="#ff6fd8"/><rect x="12.5" y="8" width="3" height="9" fill="#fff"/><rect x="12.5" y="19" width="3" height="3" fill="#fff"/></g></svg>`,
+ phi:(s=200)=>`<svg aria-hidden="true" width="${s}" height="${s*0.8}" viewBox="0 0 200 160"><defs><linearGradient id="ap1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c04cff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient></defs>
+  <path d="M120 4 V58" stroke="#b6abc9" stroke-width="3" stroke-dasharray="5 5"/>
+  <path d="M120 58 v18 a14 14 0 1 1 -24 -10" stroke="#f2eefa" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M96 66 l-9 1 7 7" fill="#f2eefa"/>
+  <rect x="28" y="70" width="128" height="80" rx="12" fill="url(#ap1)"/><path d="M28 80 l64 42 64 -42" stroke="#fff" stroke-width="6" fill="none" stroke-linejoin="round"/>
+  <circle cx="160" cy="74" r="16" fill="#f2eefa"/><text x="160" y="81" text-anchor="middle" font-family="Space Grotesk,Inter" font-weight="700" font-size="20" fill="#ff6fd8">!</text></svg>`,
+ soe:(s=200)=>`<svg aria-hidden="true" width="${s}" height="${s*0.8}" viewBox="0 0 200 160"><defs><linearGradient id="ae1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f6bff"/><stop offset="1" stop-color="#d9ccff"/></linearGradient></defs>
+  <rect x="60" y="10" width="72" height="140" rx="14" fill="#18121f" stroke="url(#ae1)" stroke-width="4"/>
+  <circle cx="96" cy="58" r="20" fill="#221a30"/><path d="M84 52 q12 -14 24 0 v8 q-12 10 -24 0z" fill="#f2eefa"/><circle cx="91" cy="56" r="2.5" fill="#18121f"/><circle cx="101" cy="56" r="2.5" fill="#18121f"/>
+  <rect x="74" y="96" width="44" height="14" rx="7" fill="#ff6fd8"/><rect x="74" y="118" width="44" height="14" rx="7" fill="url(#ae1)"/>
+  <path d="M138 26 h46 a8 8 0 0 1 8 8 v24 a8 8 0 0 1 -8 8 h-30 l-12 10 v-10 h-4 a8 8 0 0 1 -8 -8 v-24 a8 8 0 0 1 8 -8z" fill="url(#ae1)"/>
+  <text x="161" y="54" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="16" fill="#1a0f33">OTP?</text>
+  <path d="M30 60 q-10 20 0 40 M18 52 q-16 28 0 56" stroke="#d9ccff" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`,
+ title:()=>`<svg aria-hidden="true" width="260" height="200" viewBox="0 0 260 200"><defs><linearGradient id="t1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d4aff"/><stop offset="1" stop-color="#b39dff"/></linearGradient><linearGradient id="t2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c04cff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient><linearGradient id="t3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f6bff"/><stop offset="1" stop-color="#d9ccff"/></linearGradient>
+  <radialGradient id="tg"><stop offset="0" stop-color="#6d4aff" stop-opacity=".55"/><stop offset="1" stop-color="#6d4aff" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="130" cy="100" r="95" fill="url(#tg)"/><circle cx="130" cy="100" r="78" fill="none" stroke="#30263f" stroke-width="2" stroke-dasharray="4 8"/>
+  <path d="M130 42l46 17v34c0 30-20 47-46 54-26-7-46-24-46-54V59z" fill="url(#t1)"/><path d="M111 98l13 13 26-27" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(16 26)"><rect width="56" height="40" rx="10" fill="url(#t2)"/><path d="M0 8l28 18 28-18" stroke="#fff" stroke-width="4" fill="none"/></g>
+  <g transform="translate(196 118)"><rect width="44" height="64" rx="10" fill="url(#t3)"/><rect x="14" y="52" width="16" height="4" rx="2" fill="#1a0f33"/></g>
+  <g transform="translate(200 20)"><path d="M18 0 L36 32 H0Z" fill="#ff6fd8"/><rect x="16" y="11" width="4" height="11" fill="#fff"/><rect x="16" y="25" width="4" height="4" fill="#fff"/></g></svg>`
+};
+const badgeSVG=(k)=>{const g={soc:['#6d4aff','#b39dff'],phi:['#c04cff','#ff6fd8'],soe:['#8f6bff','#d9ccff']}[k];
+ return `<svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Badge earned"><defs><linearGradient id="b${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></linearGradient></defs>
+ <path d="M50 4 L61 14 L76 12 L80 27 L94 34 L88 48 L94 62 L80 69 L76 84 L61 82 L50 94 L39 82 L24 84 L20 69 L6 62 L12 48 L6 34 L20 27 L24 12 L39 14Z" fill="url(#b${k})"/>
+ <circle cx="50" cy="49" r="27" fill="rgba(0,0,0,.18)"/><g transform="translate(32 31) scale(1.5)">${'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'+ICON[k]+'</svg>'}</g></svg>`;};
+
+
+
+/* ---------------- state ---------------- */
+const ROLES={
+ soc:{name:"SOC Analyst",attack:"Ransomware",max:400,habit:"Update your devices.",habitText:"Turn on automatic updates and keep a backup."},
+ phi:{name:"Phishing Investigator",attack:"Phishing & fake SMS",max:820,habit:"Check the sender and the link before you click.",habitText:"Not sure? Open the official app yourself."},
+ soe:{name:"Social Engineering Defender",attack:"Fake support calls",max:320,habit:"Never share an OTP code.",habitText:"Hang up and call the official number."}
+};
+const MAXTOTAL=ROLES.soc.max+ROLES.phi.max+ROLES.soe.max;
+let S={scores:{},mute:false};
+try{const s=JSON.parse(localStorage.getItem("tar-v2")||"null"); if(s&&s.scores) S=Object.assign(S,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("tar-v2",JSON.stringify(S))}catch(e){}};
+const app=document.getElementById("app");
+const $=(sel,el=app)=>el.querySelector(sel);
+const $$=(sel,el=app)=>[...el.querySelectorAll(sel)];
+let TIMERS=[];const every=(f,ms)=>{const id=setInterval(f,ms);TIMERS.push(id);return id};const later=(f,ms)=>{const id=setTimeout(f,ms);TIMERS.push(id);return id};
+const stopTimers=()=>{TIMERS.forEach(id=>{clearInterval(id);clearTimeout(id)});TIMERS=[];const n=document.querySelector(".notif");if(n)n.remove()};
+function render(html){stopTimers();SEL=null;app.classList.remove("wide");app.innerHTML=`<div class="screen">${html}</div>`;window.scrollTo(0,0);const h=$("h1,h2");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}}
+function toast(t){document.querySelectorAll(".toast").forEach(x=>x.remove());const d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600)}
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const badges=()=>Object.keys(S.scores).length;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+/* ---------------- juice: sound, haptics, floating points ---------------- */
+let AC=null;
+function tone(f,d,type="sine",vol=.06,delay=0){if(S.mute)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t=AC.currentTime+delay,o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d+.02)}catch(e){}}
+const sfx={good(){tone(660,.09,"triangle");tone(990,.14,"triangle",.06,.08)},bad(){tone(170,.28,"sawtooth",.04)},drop(){tone(520,.05,"triangle",.05)},pick(){tone(380,.04,"triangle",.04)},
+ alarm(){tone(880,.08,"square",.025);tone(660,.08,"square",.025,.1)},win(){[523,659,784,1046].forEach((f,i)=>tone(f,.16,"triangle",.06,i*.09))},ring(){tone(740,.12,"sine",.05);tone(740,.12,"sine",.05,.18)}};
+const buzz=(ms=25)=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
+function floatAt(el,txt,color="#d9ccff"){const r=(el&&el.getBoundingClientRect)?el.getBoundingClientRect():{left:innerWidth/2,top:innerHeight/2,width:0};const d=document.createElement("div");d.className="float";d.style.left=(r.left+r.width/2)+"px";d.style.top=(r.top-6)+"px";d.style.color=color;d.textContent=txt;document.body.appendChild(d);setTimeout(()=>d.remove(),1000)}
+function shake(el){if(!el)return;el.classList.remove("shake");void el.offsetWidth;el.classList.add("shake")}
+const soundBtn=()=>`<button class="sound" id="snd" aria-pressed="${!S.mute}">${S.mute?"SOUND OFF":"SOUND ON"}</button>`;
+function wireSound(){const b=$("#snd");if(b)b.onclick=()=>{S.mute=!S.mute;save();b.textContent=S.mute?"SOUND OFF":"SOUND ON";b.setAttribute("aria-pressed",!S.mute);if(!S.mute)sfx.pick()}}
+
+/* confetti */
+const fx=document.getElementById("fx"),cx=fx.getContext("2d");let parts=[];
+function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;fx.width=innerWidth;fx.height=innerHeight;
+ const cols=["#6d4aff","#b39dff","#c04cff","#ff6fd8","#8f6bff","#d9ccff","#e4d9ff"];const start=!parts.length;
+ for(let i=0;i<140;i++)parts.push({x:innerWidth/2,y:innerHeight*0.35,vx:(Math.random()-.5)*12,vy:Math.random()*-12-3,s:Math.random()*7+4,c:cols[i%cols.length],r:Math.random()*6,life:120});
+ if(!start)return;(function loop(){cx.clearRect(0,0,fx.width,fx.height);parts.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=.1;p.life--;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});
+  parts=parts.filter(p=>p.life>0&&p.y<fx.height+20);if(parts.length)requestAnimationFrame(loop);else cx.clearRect(0,0,fx.width,fx.height)})();}
+
+/* ---------------- drag & drop engine (mouse + touch, with tap fallback) ---------------- */
+let DRAG=null, SEL=null;
+function draggable(el,opts){
+ el.classList.add("drag");
+ el.addEventListener("pointerdown",e=>{if(el.dataset.off||e.button>0)return;e.preventDefault();const r=el.getBoundingClientRect();
+  DRAG={el,opts,sx:e.clientX,sy:e.clientY,ox:e.clientX-r.left,oy:e.clientY-r.top,w:r.width,h:r.height,moved:false,ghost:null,over:null}});
+ el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectItem(el,opts)}});
+ if(!el.hasAttribute("tabindex"))el.setAttribute("tabindex","0");
+}
+function selectItem(el,opts){if(SEL&&SEL.el===el){el.classList.remove("sel");SEL=null;return}if(SEL)SEL.el.classList.remove("sel");SEL={el,opts};el.classList.add("sel");sfx.pick();if(opts.onSelect)opts.onSelect(el)}
+function dropzone(el,type){el.dataset.drop=type;el.addEventListener("click",e=>{if(!SEL)return;const acc=SEL.opts.accept||[];if(!acc.includes(type))return;e.stopPropagation();const s=SEL;s.el.classList.remove("sel");SEL=null;s.opts.onDrop(el,s.el)})}
+window.addEventListener("pointermove",e=>{if(!DRAG)return;const d=DRAG,dx=e.clientX-d.sx,dy=e.clientY-d.sy;
+ if(!d.moved){if(Math.hypot(dx,dy)<6)return;d.moved=true;const g=d.el.cloneNode(true);g.classList.add("ghost-drag");g.classList.remove("sel","lifted");g.style.width=d.w+"px";g.style.height=d.h+"px";document.body.appendChild(g);d.ghost=g;d.el.classList.add("lifted");sfx.pick();if(SEL){SEL.el.classList.remove("sel");SEL=null}}
+ d.ghost.style.transform=`translate(${e.clientX-d.ox}px,${e.clientY-d.oy}px) rotate(${clamp(dx/30,-6,6)}deg) scale(1.05)`;
+ const under=document.elementFromPoint(e.clientX,e.clientY);let t=under&&under.closest("[data-drop]");if(t&&!(d.opts.accept||[]).includes(t.dataset.drop))t=null;
+ if(d.over!==t){if(d.over)d.over.classList.remove("over");if(t)t.classList.add("over");d.over=t}});
+function endDrag(e,cancel){if(!DRAG)return;const d=DRAG;DRAG=null;
+ if(d.moved){d.ghost.remove();d.el.classList.remove("lifted");if(d.over){d.over.classList.remove("over");if(!cancel){sfx.drop();buzz(15);d.opts.onDrop(d.over,d.el);return}}if(d.opts.onCancel)d.opts.onCancel(d.el)}
+ else if(!cancel){selectItem(d.el,d.opts)}}
+window.addEventListener("pointerup",e=>endDrag(e,false));window.addEventListener("pointercancel",e=>endDrag(e,true));
+
+/* slide-to-act control */
+function slider(el,onDone){const knob=$(".knob",el),fill=$(".fill",el);let sx=0,x=0,drag=false,done=false;const max=()=>el.clientWidth-66;
+ const set=v=>{x=clamp(v,0,max());knob.style.transform=`translateX(${x}px)`;fill.style.width=(x+61)+"px"};
+ knob.addEventListener("pointerdown",e=>{if(done)return;drag=true;sx=e.clientX-x;knob.setPointerCapture(e.pointerId);knob.style.transition="none"});
+ knob.addEventListener("pointermove",e=>{if(drag)set(e.clientX-sx)});
+ const up=()=>{if(!drag)return;drag=false;knob.style.transition="transform .25s";if(x>max()*.8){done=true;set(max());sfx.good();buzz(30);onDone()}else{set(0);fill.style.width="0"}};
+ knob.addEventListener("pointerup",up);knob.addEventListener("pointercancel",up);
+ knob.addEventListener("keydown",e=>{if(!done&&(e.key==="Enter"||e.key===" "||e.key==="ArrowRight")){e.preventDefault();done=true;set(max());onDone()}});}
+const sliderHTML=(color,label,icon)=>`<div class="slider ${color}" id="sl"><div class="fill"></div><div class="lbl">${label} →</div><button class="knob" aria-label="${label}">${icon}</button></div>`;
+
+/* ---------------- title / hub / brief ---------------- */
+function title(){
+ render(`<div class="top"><span class="ntag">CPCS 463</span>${soundBtn()}</div>
+ <div class="hero" style="padding-top:20px">${ART.title()}</div>
+ <div class="center"><h1 class="disp xl">Try a role</h1><div class="glitch disp xl" data-text="Stop the attack">Stop the attack</div>
+ <p class="muted" style="margin-top:14px;font-size:16px">3 jobs. 3 attacks. Can you stop them?</p></div>
+ <div class="grow"></div>
+ <button class="btn primary" id="go">Start</button>
+ ${badges()?`<button class="link" id="reset">Start over</button>`:""}
+ <p class="foot">By Rafal &amp; Sedra · scenarios are fictional</p>`);
+ wireSound();$("#go").onclick=()=>{sfx.good();hub()};const r=$("#reset");if(r)r.onclick=()=>{S.scores={};save();title()};
+}
+const HUBINFO={
+ soc:{n:"01",tag:"Ransomware",desc:"Unplug infected PCs fast.",meta:"",glow:"rgba(109,74,255,.55)"},
+ phi:{n:"02",tag:"Phishing",desc:"Spot the fake messages.",meta:"",glow:"rgba(255,111,216,.45)"},
+ soe:{n:"03",tag:"Fake call",desc:"Beat a fake IT support call.",meta:"",glow:"rgba(185,160,255,.45)"}
+};
+function hub(){
+ const card=(k)=>{const h=HUBINFO[k],done=S.scores[k]!=null;return `<button class="rcard${done?" done":""}" data-k="${k}" aria-label="${ROLES[k].name}: ${h.desc}">
+   <span class="rtop"><span class="rlab"><span class="ntag">${h.n}</span> ${h.tag}</span>${done?`<span class="rdone">✓ ${S.scores[k]} pts</span>`:""}</span>
+   <span class="rart" style="--glow:${h.glow}">${ART[k](150)}</span>
+   <span class="rname disp">${ROLES[k].name}</span>
+   <span class="rdesc">${h.desc}</span>
+   <span class="rfoot"><span class="rpill">${done?"Replay":"Play"} →</span><span class="rmeta">${ROLES[k].max} PTS</span></span></button>`};
+ const all=badges()===3;
+ render(`<div class="top"><span class="chip" style="color:#e4d9ff">★ ${badges()} / 3 BADGES</span>${soundBtn()}</div>
+ <div class="hubhead"><div class="sechead"><span class="ntag">ROLES</span></div><h1 class="disp hubh">Pick a job.<br><span class="glitch" data-text="Stop an attack.">Stop an attack.</span></h1></div>
+ <div class="rgrid">${card("soc")}${card("phi")}${card("soe")}</div>
+ <div class="grow"></div>
+ ${all?`<button class="btn primary pulse" id="fin" style="border-radius:999px">See your results →</button>`:badges()?`<button class="link" id="fin">Finish now and see your habits</button>`:""}
+ <button class="link" id="back" style="font-size:13px">← Title screen</button>`);
+ app.classList.add("wide");
+ wireSound();$$(".rcard").forEach(b=>b.onclick=()=>{sfx.pick();brief(b.dataset.k)});
+ const f=$("#fin");if(f)f.onclick=finish;$("#back").onclick=title;
+}
+const BRIEF={
+ soc:{chip:"SOC Analyst",hook:"Ransomware is spreading.",jobs:["Watch for red PCs","Drag the plug onto them","Don't unplug clean ones"]},
+ phi:{chip:"Phishing Investigator",hook:"8 messages. Some are fake.",jobs:["Swipe: phishing or safe","Pin the red flags","Careful: some are real"]},
+ soe:{chip:"Social Engineering Defender",hook:"Your phone is ringing.",jobs:["Slide to answer","Reply within 30 s","Never share the code"]}
+};
+function brief(k){const b=BRIEF[k];
+ render(`<div class="top"><span class="chip" style="background:var(--g-${k});color:${k==="soe"?"#1a0f33":"#fff"}">${b.chip.toUpperCase()}</span><span class="ntag">MISSION</span></div>
+ <div class="hero">${ART[k](210)}</div><h2 class="disp center">${b.hook}</h2>
+ <div class="jobs">${b.jobs.map((j,i)=>`<div class="job"><span class="ntag">0${i+1}</span><span>${j}</span></div>`).join("")}</div>
+ <div class="grow"></div><button class="btn ${k}" id="go">Start mission</button><button class="link" id="back">← Back</button>`);
+ $("#go").onclick=()=>{sfx.good();({soc:socStart,phi:phiStart,soe:soeStart})[k]()};$("#back").onclick=hub;
+}
+
+/* ================= SOC ANALYST ================= */
+const plugSVG=(c="#2a1a00",s=22)=>`<svg aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 01-12 0zM12 17v5"/><path d="M3 3l18 18" stroke="#c0182f"/></svg>`;
+const pcSVG=(c)=>`<svg aria-hidden="true" width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="${c}" stroke-width="2"><rect x="2" y="2" width="22" height="14" rx="2"/><path d="M9 20h8M13 16v4"/></svg>`;
+let soc;
+function socTop(){return `<div class="top"><span class="chip" style="background:var(--g-soc);color:#fff">SOC ANALYST</span><span class="chip" id="pts">${soc.score} PTS</span></div>`}
+function socStart(){soc={score:0};socContain()}
+function socAdd(p,el){soc.score=Math.max(0,soc.score+p);const e=$("#pts");if(e)e.textContent=soc.score+" PTS";if(p)floatAt(el||e,(p>0?"+":"")+p,p>0?"#d9ccff":"#ff6b8a")}
+/* stage 1: live infection map */
+function socContain(){
+ const pcs=["PC-111","PC-112","PC-113","PC-114","PC-115","PC-116"];
+ render(`${socTop()}
+ <h2 class="disp">Unplug the red PCs!</h2>
+ <div class="net" id="net">
+  <div class="netrow"><div class="node small">☁ INTERNET</div><div class="netlink"></div><div class="node small">FIREWALL</div><div class="netlink"></div><div class="node small">REMOTE-GW</div></div>
+  <div class="bus"></div>
+  <div class="pcs">${pcs.map(p=>`<div class="node" data-pc="${p}">${pcSVG("#c2b0ff")}<span>${p}</span><span class="st2">OK</span></div>`).join("")}</div>
+  <div class="bus"></div>
+  <div class="server" id="srv" data-pc="SERVER"><div style="display:flex;justify-content:space-between"><b>FS-LIB-02 · file server</b><span id="fc">0 files encrypted</span></div><div class="bar"><div id="fb"></div></div></div>
+  <div class="overlay" id="ov"><div class="tool" style="pointer-events:none">${plugSVG()} Isolate</div><p style="font-size:16px;max-width:280px">Drag the plug onto <b style="color:#ff6b8a">red</b> PCs.<br>Don't unplug clean ones.</p><button class="btn soc" id="st" style="width:200px">Go!</button></div>
+ </div>
+ <div class="tray"><div class="tool" id="plug" aria-label="Isolate tool. Drag onto an infected computer">${plugSVG()} Isolate</div><span class="muted" style="font-size:12.5px">drag me onto a red PC</span></div>
+ <div id="fbk"></div>`);
+ const st={};pcs.forEach(p=>st[p]="ok");st["PC-114"]="inf";let files=0,ended=false,elapsed=0,cleanIso=0,everInf=new Set(["PC-114"]);
+ const paint=()=>$$(".node[data-pc]").forEach(n=>{const s=st[n.dataset.pc];n.classList.toggle("inf",s==="inf");n.classList.toggle("iso",s==="iso"||s==="isoc");
+  n.querySelector(".st2").textContent=s==="inf"?"ENCRYPTING":s==="iso"?"ISOLATED":s==="isoc"?"UNPLUGGED (CLEAN)":"OK";n.querySelector("svg").setAttribute("stroke",s==="inf"?"#fff":s==="ok"?"#c2b0ff":"#7f7098")});
+ paint();
+ $$(".node[data-pc]").forEach(n=>dropzone(n,"pc"));dropzone($("#srv"),"pc");
+ draggable($("#plug"),{accept:["pc"],onDrop:(z)=>{if(ended)return;const id=z.dataset.pc;
+   if(id==="SERVER"){sfx.bad();shake(z);toast("The server is the victim, not the source. Unplug the infected PCs.");return}
+   if(st[id]==="inf"){st[id]="iso";sfx.good();buzz(30);socAdd(0);floatAt(z,"Isolated!","#d9ccff")}
+   else if(st[id]==="ok"){st[id]="isoc";cleanIso++;sfx.bad();shake(z);floatAt(z,"That PC was clean","#ffb547")}
+   paint();check()}});
+ const check=()=>{if(ended)return;if(!pcs.some(p=>st[p]==="inf")){finishStage(true)}};
+ const finishStage=(contained)=>{ended=true;stopTimers();
+  const saved=pcs.filter(p=>p!=="PC-114"&&!everInf.has(p)).length;
+  const pts=contained?clamp(100+60*saved-25*cleanIso,0,400):clamp(30*saved-25*cleanIso,0,150);socAdd(pts,$("#net"));
+  soc.saved=saved;soc.cleanIso=cleanIso;soc.files=files;soc.contained=contained;paint();contained?sfx.win():sfx.bad();
+  $("#fbk").innerHTML=`<div class="fb ${contained?"ok":"no"}"><b class="t">${contained?`Contained! ${saved}/5 PCs saved`:`Too slow!`}</b>${files.toLocaleString()} files lost${cleanIso?` · ${cleanIso} clean PC${cleanIso>1?"s":""} unplugged`:""}</div><button class="btn soc" id="nb" style="margin-top:12px">See result →</button>`;
+  $("#fbk").scrollIntoView({behavior:"smooth",block:"center"});$("#nb").onclick=socDone};
+ $("#st").onclick=()=>{$("#ov").remove();sfx.alarm();
+  every(()=>{if(ended)return;elapsed+=100;const act=pcs.filter(p=>st[p]==="inf").length;files+=act*9;$("#fc").textContent=files.toLocaleString()+" files encrypted";$("#fb").style.width=Math.min(100,files/40)+"%";
+   if(elapsed%3000===0){const clean=pcs.filter(p=>st[p]==="ok");if(act&&clean.length){const v=clean[Math.floor(Math.random()*clean.length)];st[v]="inf";everInf.add(v);paint();sfx.alarm();buzz(60);shake($(`.node[data-pc="${v}"]`))}}
+   if(elapsed>=30000)finishStage(false)},100)};
+}
+function socDone(){result("soc",soc.score,soc.contained?`${soc.saved}/5 PCs saved`:"Not contained in time")}
+
+/* ================= PHISHING INVESTIGATOR ================= */
+const MSGS=[
+ {kind:"SMS",from:[["+966 5X XXX 4417","sender"]],body:[["ParcelSwift: your parcel is on hold. Pay the 2.50 SAR customs fee ",null],["within 2 hours",'urgent'],[" or it will be returned: ",null],["parcelswift-ksa-delivery.info/pay","link"]],phish:true,
+  flags:{sender:"<b>Odd sender:</b> a personal number.",urgent:"<b>Urgency:</b> “within 2 hours”.",link:"<b>Fake link:</b> a lookalike .info site."}},
+ {kind:"EMAIL",from:[["Course Announcements <announcements@kau.edu.sa>",null]],subj:"Tomorrow's lecture is in a new room",body:[["Tomorrow's lecture moves to Building 21, Room 104. Nothing else changes. You'll find the details on the course page in the LMS.",null]],phish:false,
+  safe:"Real <b>kau.edu.sa</b> address. No link, no request."},
+ {kind:"EMAIL",from:[["KAU IT Support <",null],["it-support@kau-edu-sa.com","sender"],[">",null]],subj:"Your password expires today",body:[["Your university password ",null],["expires in 3 hours",'urgent'],[". To keep your account, ",null],["log in here and confirm your password",'ask'],[": ",null],["kau-edu-sa.com/verify","link"]],phish:true,
+  flags:{sender:"<b>Fake domain:</b> kau-edu-sa<b>.com</b> ≠ kau.edu.sa.",urgent:"<b>Urgency:</b> “expires in 3 hours”.",ask:"<b>Asks for your password.</b>",link:"<b>Fake link:</b> the lookalike site."}},
+ {kind:"SMS",from:[["ALWAHA BANK",null]],body:[["Purchase of 45.00 SAR at a bookstore with your card ending 2290. If this wasn't you, call the number on the back of your card.",null]],phish:false,
+  safe:"No link, no code request. Uses the number on your card."},
+ {kind:"EMAIL",from:[["MegaMart Rewards <",null],["winner@megamart-prize.top","sender"],[">",null]],subj:"Congratulations, you've won!",body:[["You've been selected to win a brand-new phone! ",'tooGood'],["Just pay 9.99 SAR shipping",'money'],[" at ",null],["megamart-prize.top/claim","link"],[". Offer ends ",null],["today",'urgent'],["!",null]],phish:true,
+  flags:{sender:"<b>Odd sender:</b> a strange .top domain.",tooGood:"<b>Too good to be true.</b>",money:"<b>Asks for money:</b> a “small fee”.",link:"<b>Fake link:</b> a prize site.",urgent:"<b>Urgency:</b> “today”."}},
+ {kind:"SMS",from:[["ALWAHA BANK",null]],body:[["Your account has been ",null],["suspended",'threat'],[". ",null],["Reply with the code we just sent you",'ask'],[" to reactivate it.",null]],phish:true,
+  flags:{threat:"<b>Threat:</b> “suspended”.",ask:"<b>Asks for your OTP code.</b> Banks never do."},
+  note:"SMS sender names can be faked."},
+ {kind:"EMAIL",from:[["ParcelSwift <notifications@parcelswift.com>",null]],subj:"Your parcel arrives today",body:[["Good news! Your parcel will be delivered today between 2 and 5 PM. You can follow it in the ParcelSwift app.",null]],phish:false,
+  safe:"Real domain, no payment, points to the app."},
+ {kind:"EMAIL",from:[["Accounts <",null],["billing@quickpay-invoices.net","sender"],[">",null]],subj:"Invoice #88213 overdue",body:[["Please open the ",null],["attached invoice (Invoice_88213.zip)",'attach'],[" and pay ",null],["within 24 hours",'urgent'],[" to avoid ",null],["legal action",'threat'],[".",null]],phish:true,
+  flags:{sender:"<b>Odd sender:</b> an unknown company.",attach:"<b>Surprise .zip file:</b> can hide malware.",urgent:"<b>Urgency:</b> “within 24 hours”.",threat:"<b>Threat:</b> “legal action”."}}
+];
+let phi;
+function phiStart(){phi={i:0,score:0,verdicts:0,flagsFound:0,flagsTotal:0,streak:0,best:0};phiCard()}
+function msgHTML(m,interactive){
+ const seg=(arr,base)=>arr.map(([t,f],j)=>interactive?`<span class="seg" data-f="${f||""}" data-id="${base}${j}">${esc(t)}</span>`:esc(t)).join("");
+ return `<div class="kind">${m.kind}</div><div class="from">From ${seg(m.from,"f")}</div>${m.subj?`<div class="subj">${esc(m.subj)}</div>`:""}<div class="body ${m.kind==="SMS"?"bubble":""}">${seg(m.body,"b")}</div>`;
+}
+function phiTop(){return `<div class="top"><span class="chip" style="background:var(--g-phi);color:#fff">PHISHING · ${phi.i+1} / ${MSGS.length}</span><span class="chip" id="pts">${phi.score} PTS${phi.streak>=2?` · STREAK ${phi.streak}`:""}</span></div>`}
+function phiAdd(p,el){phi.score=Math.max(0,phi.score+p);const e=$("#pts");if(e)e.textContent=phi.score+" PTS"+(phi.streak>=2?` · STREAK ${phi.streak}`:"");if(p)floatAt(el||e,(p>0?"+":"")+p,p>0?"#d9ccff":"#ff6b8a")}
+function phiCard(){
+ const m=MSGS[phi.i];
+ render(`${phiTop()}
+ <div class="stack" id="stk"><div class="ghost"></div><div class="msg${phi.i===0?" swipehint":""}" id="card" tabindex="0" aria-label="Message ${phi.i+1}. Drag left for phishing, right for safe, or use the buttons.">
+  <span class="stamp l" id="sl">PHISHING</span><span class="stamp r" id="sr">SAFE</span>${msgHTML(m,false)}
+  <div style="margin-top:auto;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7a808c"><span>← drag: phishing</span><span>safe: drag →</span></div></div></div>
+ ${phi.i===0?`<div class="hint">Throw the card ← or →</div>`:""}
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><button class="btn phi" id="bp">← Phishing</button><button class="btn ghost" id="bs">Safe →</button></div>`);
+ const card=$("#card");let sx=0,sy=0,dx=0,drag=false,gone=false;
+ const decide=(v)=>{if(gone)return;gone=true;card.classList.remove("swipehint");card.style.transform=`translateX(${v?-520:520}px) rotate(${v?-22:22}deg)`;tone(v?300:500,.12,"triangle",.05);setTimeout(()=>phiVerdict(v),230)};
+ card.addEventListener("pointerdown",e=>{if(gone)return;drag=true;sx=e.clientX;sy=e.clientY;dx=0;card.classList.remove("swipehint");card.classList.add("dragging");card.setPointerCapture(e.pointerId)});
+ card.addEventListener("pointermove",e=>{if(!drag)return;dx=e.clientX-sx;const dy=(e.clientY-sy)*.3;card.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/16}deg)`;$("#sl").style.opacity=clamp(-dx/90,0,1);$("#sr").style.opacity=clamp(dx/90,0,1)});
+ const end=()=>{if(!drag)return;drag=false;card.classList.remove("dragging");if(dx<-90)decide(true);else if(dx>90)decide(false);else{card.style.transform="";$("#sl").style.opacity=0;$("#sr").style.opacity=0}};
+ card.addEventListener("pointerup",end);card.addEventListener("pointercancel",end);
+ card.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")decide(true);if(e.key==="ArrowRight")decide(false)});
+ $("#bp").onclick=()=>decide(true);$("#bs").onclick=()=>decide(false);
+}
+function phiVerdict(saidPhish){
+ const m=MSGS[phi.i],ok=saidPhish===m.phish;
+ if(ok){phi.verdicts++;phi.streak++;phi.best=Math.max(phi.best,phi.streak);sfx.good();buzz(20)}else{phi.streak=0;sfx.bad();buzz(80)}
+ const bonus=ok&&phi.streak>=3?10:0;
+ if(m.phish){const keys=Object.keys(m.flags);phi.flagsTotal+=keys.length;phiFlags(ok,keys,bonus)}
+ else{render(`${phiTop()}
+  <div class="fb ${ok?"ok":"no"}" id="vf"><b class="t">${ok?"Correct, it's safe!":"This one was real"}</b>${m.safe}</div>
+  <div class="msgstatic">${msgHTML(m,false)}</div>
+  <div class="grow"></div><button class="btn phi" id="nb">${phi.i<MSGS.length-1?"Next message →":"See your result →"}</button>`);
+  if(ok)phiAdd(50+bonus,$("#vf"));if(bonus)toast(`Streak ×${phi.streak}! +${bonus} bonus`);$("#nb").onclick=phiNext}
+}
+const pinSVG=`<svg aria-hidden="true" width="24" height="26" viewBox="0 0 12 14"><path d="M1.5 0v14" stroke="#fff" stroke-width="1.6"/><path d="M2.5 1h8.5l-2 3 2 3H2.5z" fill="#fff"/></svg>`;
+function phiFlags(ok,keys,bonus){
+ const m=MSGS[phi.i];
+ render(`${phiTop()}
+ <div class="fb ${ok?"ok":"no"}" id="vf"><b class="t">${ok?"Correct, it's phishing!":"It was phishing"}</b>Drag the ${keys.length} pins onto the red flags.</div>
+ <div class="msgstatic flagmode" id="mm">${msgHTML(m,true)}</div>
+ <div class="pins" id="pins">${keys.map((k,i)=>`<div class="pin" data-p="${i}" aria-label="Red flag pin">${pinSVG}</div>`).join("")}</div>
+ <div class="legend" id="lg" style="display:none"><span><i style="background:#c9f5e4"></i>found</span><span><i style="background:#fff2b8"></i>missed</span><span><i style="background:#ffd6de"></i>not a flag</span></div>
+ <div id="rs" class="reasons"></div>
+ <div class="grow"></div><button class="btn phi" id="ck">Check my flags</button>`);
+ if(ok)phiAdd(50+bonus,$("#vf"));if(bonus)toast(`Streak ×${phi.streak}! +${bonus} bonus`);
+ let checked=false;const free=()=>$$("#pins .pin:not(.used)");
+ const place=(seg)=>{if(checked||seg.classList.contains("picked"))return false;const p=free()[0];if(!p){sfx.bad();shake($("#pins"));toast("No pins left. Tap a pinned part to take one back.");return false}p.classList.add("used");seg.classList.add("picked");seg.dataset.pin=p.dataset.p;tone(700,.06,"triangle",.05);buzz(15);return true};
+ $$("#mm .seg").forEach(s=>{dropzone(s,"seg");s.addEventListener("click",()=>{if(checked||SEL)return;if(s.classList.contains("picked")){s.classList.remove("picked");const p=$(`#pins .pin[data-p="${s.dataset.pin}"]`);if(p)p.classList.remove("used");sfx.pick()}else place(s)})});
+ $$("#pins .pin").forEach(p=>draggable(p,{accept:["seg"],onDrop:(seg,pin)=>{if(checked||seg.classList.contains("picked"))return;pin.classList.add("used");seg.classList.add("picked");seg.dataset.pin=pin.dataset.p}}));
+ $("#ck").onclick=()=>{
+  if(checked)return;checked=true;const segs=$$("#mm .seg");let found=new Set(),wrong=0;
+  segs.forEach(s=>{const f=s.dataset.f,p=s.classList.contains("picked");if(p&&f){s.classList.add("hit");found.add(f)}else if(p&&!f){s.classList.add("miss");wrong++}});
+  segs.forEach(s=>{if(s.dataset.f&&!found.has(s.dataset.f))s.classList.add("missed")});
+  const pts=Math.max(0,found.size*20-wrong*10);phi.flagsFound+=found.size;phiAdd(pts,$("#mm"));found.size===keys.length&&!wrong?sfx.win():found.size?sfx.good():sfx.bad();
+  $("#pins").style.display="none";$("#lg").style.display="flex";
+  $("#rs").innerHTML=`<div class="fb ${found.size===keys.length?"ok":"no"}" style="padding:10px 14px"><b class="t" style="font-size:16px;margin:0">${found.size} of ${keys.length} flags found${wrong?` · ${wrong} wrong pin${wrong>1?"s":""}`:""} · +${pts}</b></div>`+
+   keys.map(k=>`<div class="reason">${found.has(k)?"✓ ":""}${m.flags[k]}</div>`).join("")+(m.note?`<div class="reason">${m.note}</div>`:"");
+  const b=$("#ck");b.textContent=phi.i<MSGS.length-1?"Next message →":"See your result →";b.onclick=phiNext;
+ };
+}
+function phiNext(){phi.i++;if(phi.i<MSGS.length)phiCard();else result("phi",phi.score,`${phi.verdicts}/8 correct · ${phi.flagsFound}/${phi.flagsTotal} flags`)}
+
+/* ================= SOCIAL ENGINEERING ================= */
+const CALL=[
+ {them:["Hi, this is University IT Support. We've just detected a login on your student account from another country.","Do you have a minute? We need to secure it right now."],press:35,
+  opts:[["I won't discuss my account on a call I didn't make. I'll check my login alerts myself.",2,"Right. Don't follow their script."],
+        ["Which login? What country, and what time?",1,"Scammers can invent any answer."],
+        ["Oh no! Tell me what to do.",0,"Panic is exactly what they want."]]},
+ {them:["I understand, but we have to act now or they'll change your password.","I'm sending a 6-digit code to your phone. Just read it back to me so I can lock the account."],press:70,otp:true,
+  opts:[["No. Nobody legitimate asks for my verification code, so I'm not sharing it.",2,"Perfect. That code unlocks your account."],
+        ["Can you email me instead?",1,"Don't keep talking. They'll just email a scam."],
+        ["OK, it's 4 8 1 9 0 2.",0,"They just logged in as you."]]},
+ {them:["Look, if I don't get that code in the next five minutes, your account gets locked and you'll lose all your coursework."],press:100,
+  opts:[["I'm hanging up and calling the official IT helpdesk number myself.",2,"Best move. Call the official number yourself."],
+        ["Let me ask a friend what to do and call you back on this number.",1,"Their number reaches the scammer."],
+        ["Fine, fine, here's the code…",0,"Pressure isn't proof."]]}
+];
+let soe;
+const phoneIco=(c,s=26)=>ico("soe",c,s);
+function soeStart(){soe={i:0,score:0,safe:0,hist:[],otpGone:false};
+ render(`<div class="top"><span class="chip" style="background:var(--g-soe);color:#1a0f33">SOCIAL ENG. DEFENDER</span>${soundBtn()}</div>
+ <div class="callscreen"><div class="lab">Incoming call</div><div class="bigav">${phoneIco("#d9ccff",48)}</div>
+ <h2>“University IT Support”</h2><p class="muted">+966 12 XXX XXXX · <i>caller ID can be faked</i></p></div>
+ <div class="grow"></div>${sliderHTML("green","Slide to answer",phoneIco("#1a0f33",26))}`);
+ wireSound();sfx.ring();every(()=>sfx.ring(),1800);slider($("#sl"),()=>later(soeTurn,250));
+}
+function soeAdd(p,el){soe.score+=p;const e=$("#pts");if(e)e.textContent=soe.score+" PTS";if(p)floatAt(el||e,"+"+p,"#d9ccff")}
+function soeTurn(){
+ const t=CALL[soe.i],opts=shuffle(t.opts),T=30;let left=T,answered=false;
+ const hist=soe.hist.map(h=>`<div class="bub them">${h.them}</div><div class="bub me">${h.me}</div>`).join("");
+ render(`<div class="top"><span class="chip" style="background:var(--g-soe);color:#1a0f33">TURN ${soe.i+1} / 3</span><span class="chip" id="pts">${soe.score} PTS</span></div>
+ <div class="card caller" style="padding:12px 14px"><div class="avatar">${phoneIco("#d9ccff",22)}</div><div><div style="font-weight:600;font-size:16px">“University IT Support”</div><div class="muted mono" style="font-size:12px" id="dur">ON CALL</div></div></div>
+ <div><div class="top mono" style="font-size:11px;color:var(--muted);margin-bottom:6px"><span>PRESSURE</span><span>${t.press<50?"RISING":t.press<90?"HIGH":"MAX"}</span></div><div class="meter"><div id="pm" style="width:${soe.i?CALL[soe.i-1].press:5}%"></div></div></div>
+ <div class="chat" id="ch">${hist}</div>
+ <div id="ask" style="display:none;flex-direction:column;gap:10px"><div class="top"><span class="lab">Your reply</span><span class="mono" style="font-size:12px;color:var(--muted)" id="tl">${T}s</span></div><div class="turnbar"><div id="tb"></div></div>
+ <div class="opts">${opts.map((o,j)=>`<button class="opt" data-v="${o[1]}" data-j="${j}"><span class="k">${"ABC"[j]}</span><span>“${o[0]}”</span></button>`).join("")}</div></div>
+ <div id="fbk"></div><div class="grow"></div><div id="nx"></div>`);
+ later(()=>{const pm=$("#pm");if(pm)pm.style.width=t.press+"%"},80);
+ // caller "types" their lines one by one
+ t.them.forEach((x,k)=>later(()=>{$("#ch").insertAdjacentHTML("beforeend",`<div class="bub them">${x}</div>`);tone(520,.05,"sine",.03)},350+k*900));
+ later(()=>{$("#ask").style.display="flex";$("#ask").scrollIntoView({behavior:"smooth",block:"end"});
+   every(()=>{if(answered)return;left-=.1;const tb=$("#tb");if(!tb)return;tb.style.width=Math.max(0,left/T*100)+"%";$("#tl").textContent=Math.ceil(left)+"s";if(left<=0)pick(null)},100)},350+t.them.length*900);
+ if(t.otp)later(showOTP,1200);
+ const pick=(b)=>{if(answered)return;answered=true;
+  const o=b?opts[+b.dataset.j]:null,v=o?o[1]:-1,pts=v===2?100:v===1?40:0;
+  $$(".opt").forEach(x=>{x.disabled=true;if(x.dataset.v==="2")x.classList.add("right")});if(b&&v!==2)b.classList.add(v===1?"half":"wrong");
+  const said=o?o[0]:"(…you froze. They kept talking.)";soe.hist.push({them:t.them.join(" "),me:said});
+  $("#ch").insertAdjacentHTML("beforeend",`<div class="bub me">${said}</div>`);
+  if(v===2){soe.safe++;sfx.good()}else{sfx.bad();shake($("#ch"))}soeAdd(pts,b||$("#ch"));
+  const n=document.querySelector(".notif");if(n&&v===0){n.classList.remove("show");setTimeout(()=>n.remove(),300)}
+  $("#fbk").innerHTML=`<div class="fb ${v===2?"ok":v===1?"mid":"no"}"><b class="t">${v===2?"Safe reply · +100":v===1?"Half-safe · +40":o?"Risky reply · +0":"Time's up · +0"}</b>${o?o[2]:"You froze. You can always hang up."}</div>`;
+  if(soe.i<2){$("#nx").innerHTML=`<button class="btn soe" id="nb">Continue the call →</button>`;$("#nb").onclick=()=>{soe.i++;soeTurn()};$("#nb").scrollIntoView({behavior:"smooth",block:"end"})}
+  else{$("#nx").innerHTML=sliderHTML("red","Slide to hang up",`<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 15c5-5 13-5 18 0l-2.5 3-3.5-1.5V13a12 12 0 00-6 0v3.5L5.5 18z"/></svg>`);slider($("#sl"),()=>later(soeDone,300));$("#sl").scrollIntoView({behavior:"smooth",block:"end"})}
+ };
+ $$(".opt").forEach(b=>b.onclick=()=>pick(b));
+}
+function showOTP(){
+ const n=document.createElement("div");n.className="notif";n.setAttribute("role","alert");
+ n.innerHTML=`<div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 10h10M7 14h6"/></svg></div>
+  <div style="flex:1;font-size:13.5px;line-height:1.35"><b>Messages · KAU Login</b><br>Your verification code is <b class="mono">481902</b>. Never share this code with anyone.</div>
+  <div class="mono" style="font-size:10px;color:#666;text-align:right">swipe<br>away ↑</div>`;
+ document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add("show"));tone(1046,.08,"sine",.05);tone(1318,.1,"sine",.05,.09);buzz([30,40,30]);
+ let sy=0,sx=0,dy=0,dx=0,d=false;
+ n.addEventListener("pointerdown",e=>{d=true;sy=e.clientY;sx=e.clientX;n.style.transition="none";n.setPointerCapture(e.pointerId)});
+ n.addEventListener("pointermove",e=>{if(!d)return;dy=Math.min(0,e.clientY-sy);dx=e.clientX-sx;n.style.transform=`translate(calc(-50% + ${dx}px),${dy}px)`});
+ const up=()=>{if(!d)return;d=false;n.style.transition="";if(dy<-40||Math.abs(dx)>90){n.style.transform=`translate(calc(-50% + ${dx*3}px),-160%)`;setTimeout(()=>n.remove(),300);if(!soe.otpGone){soe.otpGone=true;soeAdd(20,null);sfx.good();toast("Code swiped away without reading it out. +20")}}else n.style.transform=""};
+ n.addEventListener("pointerup",up);n.addEventListener("pointercancel",up);
+ n.addEventListener("click",()=>{if(!soe.otpGone&&!d&&Math.abs(dy)<5){toast("Swipe it away. That code is for you only.")}});
+}
+function soeDone(){result("soe",soe.score,`${soe.safe}/3 safe replies`)}
+
+/* ================= RESULT & FINISH ================= */
+const LEARN={
+ soc:["Isolate infected PCs first","It got in through a missing update","Patch, restore from backup, never pay"],
+ phi:["Check the real domain","Urgency is a red flag","Never send passwords or codes"],
+ soe:["Caller ID can be faked","Never share an OTP","Call the official number yourself"]
+};
+function result(k,score,sub){
+ S.scores[k]=Math.max(score,S.scores[k]||0);save();const r=ROLES[k];
+ render(`<div class="top"><span class="ntag">MISSION COMPLETE</span><span class="chip" style="background:var(--g-${k});color:${k==="soe"?"#1a0f33":"#fff"}">BADGE</span></div>
+ <div style="text-align:center">${badgeSVG(k)}<div class="big disp" style="margin-top:10px"><span id="cnt">0</span><span class="muted" style="font-size:20px"> / ${r.max}</span></div>
+ <p class="muted" style="margin-top:6px">${sub}</p></div>
+ <div class="learn">${LEARN[k].map(x=>`<div><span class="dotk"></span>${x}</div>`).join("")}</div>
+ <div class="tip"><div class="lab" style="margin-bottom:6px">Your habit</div><h3>${r.habit}</h3><p style="font-size:14.5px;margin-top:4px">${r.habitText}</p></div>
+ <div class="grow"></div>
+ <button class="btn ${k}" id="nb">${badges()===3?"See final results →":"Back to roles →"}</button><button class="link" id="again">Play again</button>`);
+ confetti();sfx.win();buzz([40,60,40]);let c=0;const step=Math.max(1,Math.round(score/40));every(()=>{c=Math.min(score,c+step);const e=$("#cnt");if(e)e.textContent=c;if(c>=score)stopTimers()},25);
+ $("#nb").onclick=badges()===3?finish:hub;$("#again").onclick=()=>brief(k);
+}
+function finish(){
+ const total=Object.values(S.scores).reduce((a,b)=>a+b,0),p=total/MAXTOTAL;
+ const rank=p>=.85?"Elite Defender":p>=.65?"Cyber Defender":p>=.4?"Apprentice":"Rookie";
+ const habit=(k)=>`<div class="hab"><span class="hico" style="background:var(--g-${k})">${ico(k,k==="soe"?"#1a0f33":"#fff",18)}</span><b>${ROLES[k].habit}</b></div>`;
+ render(`<div class="top"><span class="ntag">RESULTS</span><span class="chip" style="color:#e4d9ff">★ ${badges()} / 3</span></div>
+ <div class="hero">${ART.title()}</div>
+ <div class="center"><div class="lab">Your rank</div><div class="glitch disp xl" data-text="${rank}" style="margin-top:6px">${rank}</div><p class="muted" style="margin-top:6px">${total} / ${MAXTOTAL} pts</p></div>
+ <div class="tip"><div class="lab" style="margin-bottom:4px">Your 3 habits</div>${["soc","phi","soe"].map(habit).join("")}</div>
+ <div class="card center" style="font-size:14px">Suspicious message? Report it:<br><span class="mono" style="color:#cbb8ff">cybersecurity@kau.edu.sa</span></div>
+ <button class="btn primary" id="again">Play again</button>${badges()<3?`<button class="link" id="hub">Back to roles</button>`:""}
+ <p class="foot">Try a Role: Stop the Attack · Rafal &amp; Sedra · CPCS 463</p>`);
+ if(badges()===3){confetti();sfx.win()}
+ $("#again").onclick=()=>{S.scores={};save();title()};const h=$("#hub");if(h)h.onclick=hub;
+}
+
+(function deco(){const d=document.createElement("div");d.className="circuit";d.setAttribute("aria-hidden","true");d.innerHTML=`<svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1000 1000"><g fill="none" stroke="#a98bff" stroke-width="1.4" vector-effect="non-scaling-stroke"><path d="M0 120 H160 L200 160 H330"/><path d="M0 170 H120 L150 200 H240"/><path d="M1000 860 H830 L790 820 H680"/><path d="M1000 910 H880 L850 880 H760"/><path d="M60 1000 V900 L100 860"/><path d="M940 0 V90 L900 130 H850"/></g></svg>`;document.body.prepend(d)})();
+title();
+
+</script>
+</body>
+</html>
