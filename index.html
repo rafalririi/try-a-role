@@ -302,6 +302,15 @@ h2.disp{font-size:26px;line-height:1.1}
 .target .tlab{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.45;color:#e9e3f3}
 .target .tfix{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:14px;color:#9ff0cf}
 .target.fixed{border-style:solid;border-color:#9ff0cf;background:rgba(159,240,207,.08)}
+
+/* ---------- v6: social engineering trick tag + takeover screen ---------- */
+.tricktag{display:inline-block;margin-bottom:8px;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1.5px solid #a98bff;color:#d9ccff;background:rgba(124,92,255,.12)}
+.danger{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:26px 18px;border-radius:22px;background:radial-gradient(circle at 50% 0%,rgba(255,61,94,.35),transparent 65%),linear-gradient(180deg,#2a0f1a,#170a12);border:1.5px solid #ff3d5e;box-shadow:0 0 0 4px rgba(255,61,94,.12),0 0 40px rgba(255,61,94,.25)}
+.dico{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ff3d5e,#ff6b8a);box-shadow:0 0 30px rgba(255,61,94,.55);animation:pulse 1.2s infinite}
+.dglitch{color:#ffd0d8!important;text-shadow:0 0 18px rgba(255,61,94,.8)!important;font-size:34px!important}
+.dglitch::before{color:#ff3d5e!important}.dglitch::after{color:#ff9bb0!important}
+.dtext{font-size:15.5px;line-height:1.55;color:#ffe3e8;max-width:340px}
+.dangerbtn{background:linear-gradient(135deg,#ff3d5e,#ff6b8a);color:#fff}
 </style>
 </head>
 <body>
@@ -651,22 +660,22 @@ function phiNext(){phi.i++;if(phi.i<MSGS.length)phiCard();else result("phi",phi.
 
 /* ================= SOCIAL ENGINEERING ================= */
 const CALL=[
- {them:["Hi, this is University IT Support. We've just detected a login on your student account from another country.","Do you have a minute? We need to secure it right now."],press:35,
+ {trick:"Fake authority + fear",them:["Hi, this is University IT Support. We've just detected a login on your student account from another country.","Do you have a minute? We need to secure it right now."],press:35,
   opts:[["I won't discuss my account on a call I didn't make. I'll check my login alerts myself.",2,"Right. Don't follow their script."],
         ["Which login? What country, and what time?",1,"Scammers can invent any answer."],
-        ["Oh no! Tell me what to do.",0,"Panic is exactly what they want."]]},
- {them:["I understand, but we have to act now or they'll change your password.","I'm sending a 6-digit code to your phone. Just read it back to me so I can lock the account."],press:70,otp:true,
+        ["Sure, but first tell me my student ID so I know you're really IT.",0,"Your student ID is easy to find. Knowing it proves nothing."]]},
+ {trick:"Urgency",them:["I understand, but we have to act now or they'll change your password.","I'm sending a 6-digit code to your phone. Just read it back to me so I can lock the account."],press:70,otp:true,
   opts:[["No. Nobody legitimate asks for my verification code, so I'm not sharing it.",2,"Perfect. That code unlocks your account."],
         ["Can you email me instead?",1,"Don't keep talking. They'll just email a scam."],
-        ["OK, it's 4 8 1 9 0 2.",0,"They just logged in as you."]]},
- {them:["Look, if I don't get that code in the next five minutes, your account gets locked and you'll lose all your coursework."],press:100,
+        ["I'll only read you the first 3 digits.",0,"Half a code still helps them, and they'll push for the rest."]]},
+ {trick:"Threat of loss",them:["Look, if I don't get that code in the next five minutes, your account gets locked and you'll lose all your coursework."],press:100,
   opts:[["I'm hanging up and calling the official IT helpdesk number myself.",2,"Best move. Call the official number yourself."],
         ["Let me ask a friend what to do and call you back on this number.",1,"Their number reaches the scammer."],
-        ["Fine, fine, here's the code…",0,"Pressure isn't proof."]]}
+        ["OK, but I'm reporting this call afterwards. The code is 4 8 1 9 0 2.",0,"Reporting it later doesn't undo sharing the code.",{shares:true}]]}
 ];
 let soe;
 const phoneIco=(c,s=26)=>ico("soe",c,s);
-function soeStart(){soe={i:0,score:0,safe:0,hist:[],otpGone:false};
+function soeStart(){soe={i:0,score:0,safe:0,hist:[],otpGone:false,shared:false};
  render(`<div class="top"><span class="chip" style="background:var(--g-soe);color:#1a0f33">SOCIAL ENG. DEFENDER</span>${soundBtn()}</div>
  <div class="callscreen"><div class="lab">Incoming call</div><div class="bigav">${phoneIco("#d9ccff",48)}</div>
  <h2>“University IT Support”</h2><p class="muted">+966 12 XXX XXXX · <i>caller ID can be faked</i></p></div>
@@ -697,7 +706,9 @@ function soeTurn(){
   $("#ch").insertAdjacentHTML("beforeend",`<div class="bub me">${said}</div>`);
   if(v===2){soe.safe++;sfx.good()}else{sfx.bad();shake($("#ch"))}soeAdd(pts,b||$("#ch"));
   const n=document.querySelector(".notif");if(n&&v===0){n.classList.remove("show");setTimeout(()=>n.remove(),300)}
-  $("#fbk").innerHTML=`<div class="fb ${v===2?"ok":v===1?"mid":"no"}"><b class="t">${v===2?"Safe reply · +100":v===1?"Half-safe · +40":o?"Risky reply · +0":"Time's up · +0"}</b>${o?o[2]:"You froze. You can always hang up."}</div>`;
+  const trickTag=`<span class="tricktag">Trick used: ${t.trick}</span>`;
+  if(o&&o[3]&&o[3].shares){soe.shared=true;$("#fbk").innerHTML=`<div class="fb no">${trickTag}<b class="t">Risky reply · +0</b>${o[2]}</div>`;later(()=>soeTakeover(t,o),900);return}
+  $("#fbk").innerHTML=`<div class="fb ${v===2?"ok":v===1?"mid":"no"}">${trickTag}<b class="t">${v===2?"Safe reply · +100":v===1?"Half-safe · +40":o?"Risky reply · +0":"Time's up · +0"}</b>${o?o[2]:"You froze. You can always hang up."}</div>`;
   if(soe.i<2){$("#nx").innerHTML=`<button class="btn soe" id="nb">Continue the call →</button>`;$("#nb").onclick=()=>{soe.i++;soeTurn()};$("#nb").scrollIntoView({behavior:"smooth",block:"end"})}
   else{$("#nx").innerHTML=sliderHTML("red","Slide to hang up",`<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 15c5-5 13-5 18 0l-2.5 3-3.5-1.5V13a12 12 0 00-6 0v3.5L5.5 18z"/></svg>`);slider($("#sl"),()=>later(soeDone,300));$("#sl").scrollIntoView({behavior:"smooth",block:"end"})}
  };
@@ -715,6 +726,19 @@ function showOTP(){
  const up=()=>{if(!d)return;d=false;n.style.transition="";if(dy<-40||Math.abs(dx)>90){n.style.transform=`translate(calc(-50% + ${dx*3}px),-160%)`;setTimeout(()=>n.remove(),300);if(!soe.otpGone){soe.otpGone=true;soeAdd(20,null);sfx.good();toast("Code swiped away without reading it out. +20")}}else n.style.transform=""};
  n.addEventListener("pointerup",up);n.addEventListener("pointercancel",up);
  n.addEventListener("click",()=>{if(!soe.otpGone&&!d&&Math.abs(dy)<5){toast("Swipe it away. That code is for you only.")}});
+}
+function soeTakeover(t,o){
+ render(`<div class="top"><span class="chip" style="background:linear-gradient(135deg,#ff3d5e,#ff6b8a);color:#fff">CALL ENDED</span><span class="chip" id="pts">${soe.score} PTS</span></div>
+ <div class="danger">
+  <div class="dico"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 017.5-2"/><path d="M12 15v2"/></svg></div>
+  <div class="glitch disp xl dglitch" data-text="Account taken over">Account taken over</div>
+  <p class="dtext">You read out the code. They logged in as you, changed your password, and now they can see your email and coursework. Real IT staff never ask for your code.</p>
+ </div>
+ <div class="fb no"><span class="tricktag">Trick used: ${t.trick}</span><b class="t">“${esc(o[0])}”</b>${o[2]}</div>
+ <div class="grow"></div>
+ <button class="btn dangerbtn" id="nb">See what happened →</button>`);
+ tone(880,.12,"square",.05);tone(660,.12,"square",.05,.14);tone(880,.12,"square",.05,.28);tone(160,.5,"sawtooth",.05,.42);buzz([120,80,120,80,300]);shake($(".danger"));
+ $("#nb").onclick=()=>result("soe",soe.score,"Code shared");
 }
 function soeDone(){result("soe",soe.score,`${soe.safe}/3 safe replies`)}
 
