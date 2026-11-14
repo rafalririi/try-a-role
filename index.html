@@ -371,8 +371,9 @@ const ROLES={
 };
 const MAXTOTAL=ROLES.soc.max+ROLES.phi.max+ROLES.soe.max;
 let S={scores:{},mute:false};
-try{const s=JSON.parse(localStorage.getItem("tar-v2")||"null"); if(s&&s.scores) S=Object.assign(S,s);}catch(e){}
-const save=()=>{try{localStorage.setItem("tar-v2",JSON.stringify(S))}catch(e){}};
+// Every page load is a new player: scores and badges live in memory only. Only the sound on/off choice is remembered on the device.
+try{const s=JSON.parse(localStorage.getItem("tar-v2")||"null"); if(s&&typeof s.mute==="boolean") S.mute=s.mute;}catch(e){}
+const save=()=>{try{localStorage.setItem("tar-v2",JSON.stringify({mute:S.mute}))}catch(e){}};
 const app=document.getElementById("app");
 const $=(sel,el=app)=>el.querySelector(sel);
 const $$=(sel,el=app)=>[...el.querySelectorAll(sel)];
