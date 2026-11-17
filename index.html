@@ -374,6 +374,10 @@ let S={scores:{},mute:false};
 // Every page load is a new player: scores and badges live in memory only. Only the sound on/off choice is remembered on the device.
 try{const s=JSON.parse(localStorage.getItem("tar-v2")||"null"); if(s&&typeof s.mute==="boolean") S.mute=s.mute;}catch(e){}
 const save=()=>{try{localStorage.setItem("tar-v2",JSON.stringify({mute:S.mute}))}catch(e){}};
+// QR mode (link with ?qr): one game per device. The plain link stays unlimited for the presentation laptop.
+const QR=(()=>{try{return new URLSearchParams(location.search).has("qr")}catch(e){return false}})();
+const getDone=()=>{try{return JSON.parse(localStorage.getItem("tar-done")||"null")}catch(e){return null}};
+const setDone=(d)=>{try{localStorage.setItem("tar-done",JSON.stringify(d))}catch(e){}};
 const app=document.getElementById("app");
 const $=(sel,el=app)=>el.querySelector(sel);
 const $$=(sel,el=app)=>[...el.querySelectorAll(sel)];
@@ -765,19 +769,31 @@ function finish(){
  const total=Object.values(S.scores).reduce((a,b)=>a+b,0),p=total/MAXTOTAL;
  const rank=p>=.85?"Elite Defender":p>=.65?"Cyber Defender":p>=.4?"Apprentice":"Rookie";
  const habit=(k)=>`<div class="hab"><span class="hico" style="background:var(--g-${k})">${ico(k,k==="soe"?"#1a0f33":"#fff",18)}</span><b>${ROLES[k].habit}</b></div>`;
+ if(QR)setDone({rank,total,badges:badges()});
  render(`<div class="top"><span class="ntag">RESULTS</span><span class="chip" style="color:#e4d9ff">★ ${badges()} / 3</span></div>
  <div class="hero">${ART.title()}</div>
  <div class="center"><div class="lab">Your rank</div><div class="glitch disp xl" data-text="${rank}" style="margin-top:6px">${rank}</div><p class="muted" style="margin-top:6px">${total} / ${MAXTOTAL} pts</p></div>
  <div class="tip"><div class="lab" style="margin-bottom:4px">Your 3 habits</div>${["soc","phi","soe"].map(habit).join("")}</div>
  <div class="card center" style="font-size:14px">Suspicious message? Report it:<br><span class="mono" style="color:#cbb8ff">cybersecurity@kau.edu.sa</span></div>
- <button class="btn primary" id="again">Play again</button>${badges()<3?`<button class="link" id="hub">Back to roles</button>`:""}
+ ${QR?`<p class="muted center" style="font-size:14px">Thanks for playing! One game per phone.</p>`:`<button class="btn primary" id="again">Play again</button>${badges()<3?`<button class="link" id="hub">Back to roles</button>`:""}`}
  <p class="foot">Try a Role: Stop the Attack · Rafal &amp; Sedra · CPCS 463</p>`);
  if(badges()===3){confetti();sfx.win()}
- $("#again").onclick=()=>{S.scores={};save();title()};const h=$("#hub");if(h)h.onclick=hub;
+ const ag=$("#again");if(ag)ag.onclick=()=>{S.scores={};save();title()};const h=$("#hub");if(h)h.onclick=hub;
 }
 
 (function deco(){const d=document.createElement("div");d.className="circuit";d.setAttribute("aria-hidden","true");d.innerHTML=`<svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1000 1000"><g fill="none" stroke="#a98bff" stroke-width="1.4" vector-effect="non-scaling-stroke"><path d="M0 120 H160 L200 160 H330"/><path d="M0 170 H120 L150 200 H240"/><path d="M1000 860 H830 L790 820 H680"/><path d="M1000 910 H880 L850 880 H760"/><path d="M60 1000 V900 L100 860"/><path d="M940 0 V90 L900 130 H850"/></g></svg>`;document.body.prepend(d)})();
-title();
+function played(d){
+ const habit=(k)=>`<div class="hab"><span class="hico" style="background:var(--g-${k})">${ico(k,k==="soe"?"#1a0f33":"#fff",18)}</span><b>${ROLES[k].habit}</b></div>`;
+ render(`<div class="top"><span class="ntag">ALREADY PLAYED</span><span class="chip" style="color:#e4d9ff">★ ${d.badges} / 3</span></div>
+ <div class="hero">${ART.title()}</div>
+ <div class="center"><h2 class="disp">You already played!</h2><p class="muted" style="margin-top:8px">One game per phone. Here's your result:</p>
+ <div class="glitch disp xl" data-text="${esc(d.rank)}" style="margin-top:14px">${esc(d.rank)}</div><p class="muted" style="margin-top:6px">${d.total} / ${MAXTOTAL} pts</p></div>
+ <div class="tip"><div class="lab" style="margin-bottom:4px">Your 3 habits</div>${["soc","phi","soe"].map(habit).join("")}</div>
+ <div class="card center" style="font-size:14px">Suspicious message? Report it:<br><span class="mono" style="color:#cbb8ff">cybersecurity@kau.edu.sa</span></div>
+ <p class="foot">Try a Role: Stop the Attack · Rafal &amp; Sedra · CPCS 463</p>`);
+}
+const done0=QR&&getDone();
+done0?played(done0):title();
 
 </script>
 </body>
